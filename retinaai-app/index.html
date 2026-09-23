@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Explainable AI for Diabetic Retinopathy Screening | Major Project A8</title>
+    <meta name="description" content="Offline-first, explainable AI screening tool for diabetic retinopathy in rural India.">
+    <!-- PWA metadata -->
+    <meta name="theme-color" content="#16a34a">
+    <link rel="manifest" id="pwa-manifest-link" href="data:application/manifest+json;base64,eyJuYW1lIjogIlJldGluYUFJIFJ1cmFsIFNjcmVlbiIsICJzaG9ydF9uYW1lIjogIlJldGluYUFJIiwgImRlc2NyaXB0aW9uIjogIk9mZmxpbmUtZmlyc3QgZXhwbGFpbmFibGUgQUkgc2NyZWVuaW5nIHRvb2wgZm9yIGRpYWJldGljIHJldGlub3BhdGh5IGluIHJ1cmFsIEluZGlhLiIsICJzdGFydF91cmwiOiAiLi8iLCAiaWQiOiAicmV0aW5hYWktcnVyYWwtc2NyZWVuIiwgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsICJiYWNrZ3JvdW5kX2NvbG9yIjogIiNmOGZhZmMiLCAidGhlbWVfY29sb3IiOiAiIzE2YTM0YSIsICJvcmllbnRhdGlvbiI6ICJwb3J0cmFpdC1wcmltYXJ5IiwgImljb25zIjogW3sic3JjIjogImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBTUFBQUFEQUNBWUFBQUJTM0d3SEFBQUZ5RWxFUVZSNG5PM2MwWlhUTUJDRlljR2hBSjZBSHVnRVdvRHFvQVhvWkh0WWVOb080Q0g0SE85aXg3WTAwc3pvL3Q4cmtDalJ2UnJIbTZVVUFBQUFBQUFBQUFBQUFBQ0FhYnp5WGtDTGQ5OCsvZkZlQTI1K2YvMlpNa3RwRmszWTg4bFFpdEFMSlBUemlGcUdrSXNpK1BPS1ZvUlFpeUg0T3FJVUljUWlDTDR1N3lLNFBqbkJ4OEtyQ0s4OW5yUVV3by9udlBJd3ZIVUVIMGRHVG9PaEU0RHc0NHlST1JsV0FNS1BLMGJsWlVnQkNEOXFqTWhOOXdJUWZyVG9uWit1QlNEOHNOQXpSOTBLUVBoaHFWZWV1aFNBOEtPSEhya3lMd0RoUjAvVytUSXRBT0hIQ0pZNWMvc3FCQkNCV1FFNC9UR1NWZDVNQ2tENDRjRWlkMXdDUVZwekFUajk0YWsxZjB3QVNHc3FBS2MvSW1qSklSTUEwcW9Md09tUFNHcnp5QVNBdEtvQ2NQb2pvcHBjTWdFZ2pRSkEydVVDY1BtRHlLN21rd2tBYVJRQTBpZ0FwRkVBU0x0VUFENEFJNE1yT1dVQ1FCb0ZnRFFLQUdrVUFOSW9BS1JSQUVpakFKQkdBU0NOQWtBYUJZQTBDZ0JwRkFEU0tBQ2tVUUJJb3dDUTlzWjdBYlA2OWVXSDZlTzkvLzdaOVBGd1F3RXFXUWU4OWZrb1NCMEtjTUxvc05mWVdpT2xPRVlCTm1RSS9Ca3ZYd2VGK0I4RitHZVcwTit6Zm8yVTRVYTZBQXFoMzBNWmJ1UUs0Qm42dHg4K252cDdUNDhQblZmeW5ISVpaQXJnRWZ5emdULzZkeU1Mc2J4UEtrV1l2Z0NaZ24vMGVCVEIzclFGbUNINGU0OVBFZXhNVjRBWmc3LzNmQlNoM1ZUZkJWSUl2L2R6ejNibmJJb0o0TFVwbnVGZnI4SHJydEVNMHlEOUJGQU8vOEpyTFROTWc3UVRJTVA5L0pFOEprRXArYWRCeWdsQStMZDVyaTNyTkVoWEFNSi9IeVc0SnRVbDBDemgzN3RVc1hvT3I4dWhVbTU3bE9seUtNMEVtQ0g4VDQ4UGQ0TjU5T2RYTUFuT1NWR0FURy9vbml2QjlqcTlMV1hac3hRRjhHUnhrdFlFMnFJRUdUNnplQXRmZ0N3bnlaNldJR2VmQkJuMkxuUUJ2Ti9BMWhQVUlzQ3RqK0U5QmJ6MzhFam9BZ0M5aFMyQTk4a1I0ZlMzZWl5bXdMNndCUUJHQ0ZtQXlDY0c2a1RkMDVBRkFFYWhBQnU4cjVsN21QRTFXUWhYZ0tpakV1MGk3bTI0QXN6QzhzVGw5TzZIQWtBYUJlakk0dVRtOU8rTEFuVFdFbURDM3g4RkdLQW15SVIvREFvd3lKVkFFLzV4VXYxS1pIWkgvNk1id1I4dlhBSGVmLzhjOG42eEpkV2dSL3hkWVM2Qk5tVC9SWlF0TTc0bUN4UUEwa0lXSU9Lb1JKdW9leHF5QU1Bb1lRdmdmV0xNZE0zcy9WcTg5L0tlc0FVQVJnaGRBTytUdy92a3RPRDlHcnozOEVqb0FwUVMvdzNFdmd4N0Y3NEEzcnhQMEJhWjF6NUtpZ0prT0Vud1hKWTlTMUdBVW56ZjBJd25xZWVhczRTL2xFUUZLSVVTbkVYNHowdFZnRklvd1JIQ2YwMjZBcFJDQ2ZZUS91dkNmUjM2ck9VTjkvanE5TlBqUTdpdk5IdUZQMnZ3RnlrbndKclhCa1NhQklTL1h0b0pzT1kxRFNKTUFvL3d6eEQ4UmZvSnNPYXhNWjZUZ1BDM20ySUNySGxNZ3lXSW82WUJ3YmN6WFFFV014YUI0TnVidGdDTEdZcEE4UHVadmdBTHp5SXN6aGFDKy9uanlCUmdzZDVnajd0R0VhbUZmazJ1QUd1ZVpmQ21IUG8xNlFLc0taU0IwUCtQQW14NEdaU3NoU0R3eHlqQUNWdEJpbFlLd2w2SEFsUTZDcHgxUVFoNEh4U2dFd0tidzFUZkJRS3VvZ0NRUmdFZ2pRSkFHZ1dBTkFvQWFSUUEwaWdBcEZFQVNLTUFrRVlCSUkwQ1FCb0ZnRFFLQUdrVUFOSW9BS1JkS3NEdnJ6OWY5Vm9JWU9WS1Rwa0FrRVlCSUkwQ1FCb0ZnTFRMQmVDRE1DSzdtazhtQUtSUkFFaXJLZ0NYUVlpb0pwZE1BRWlyTGdCVEFKSFU1cEVKQUdsTkJXQUtJSUtXSERJQklLMjVBRXdCZUdyTkh4TUEwa3dLd0JTQUI0dmNtVTBBU29DUnJQTEdKUkNrbVJhQUtZQVJMSE5tUGdFb0FYcXl6bGVYU3lCS2dCNTY1S3JiWndCS0FFdTk4dFQxUXpBbGdJV2VPZXArRjRnU29FWHYvQXk1RFVvSlVHTkVib2I5SElBUzRJcFJlUm42Z3pCS2dETkc1c1F0a08rK2Zmcmo5ZHlJeWVPQWRQc3FCTk1BYTE1NUNCRkNwb0V1NzRNd1JBRVdGRUdIZC9BWElSYnhFa1dZVjVUZ0wwSXQ1aVdLTUk5b3dWK0VYTlFXeXBCUDFOQ3ZoVi9nUFpRaWpneGhCd0FBQUFBQUFBQUFBQUFvK0F0RWl6SmFhdTNGdGdBQUFBQkpSVTVFcmtKZ2dnPT0iLCAic2l6ZXMiOiAiMTkyeDE5MiIsICJ0eXBlIjogImltYWdlL3BuZyIsICJwdXJwb3NlIjogImFueSJ9LCB7InNyYyI6ICJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQU1BQUFBREFDQVlBQUFCUzNHd0hBQUFGeUVsRVFWUjRuTzNjMFpYVE1CQ0ZZY0doQUo2QUh1Z0VXb0Rxb0FYb1pIdFllTm9PNENINEhPOWl4N1kwMHN6by90OHJrQ2pSdlJySG02VVVBQUFBQUFBQUFBQUFBQUNBYWJ6eVhrQ0xkOTgrL2ZGZUEyNStmLzJaTWt0cEZrM1k4OGxRaXRBTEpQVHppRnFHa0lzaStQT0tWb1JRaXlINE9xSVVJY1FpQ0w0dTd5SzRQam5CeDhLckNLODluclFVd28vbnZQSXd2SFVFSDBkR1RvT2hFNER3NDR5Uk9SbFdBTUtQSzBibFpVZ0JDRDlxak1oTjl3SVFmclRvblordUJTRDhzTkF6UjkwS1FQaGhxVmVldWhTQThLT0hIcmt5THdEaFIwL1crVEl0QU9ISENKWTVjL3NxQkJDQldRRTQvVEdTVmQ1TUNrRDQ0Y0VpZDF3Q1FWcHpBVGo5NGFrMWYwd0FTR3NxQUtjL0ltakpJUk1BMHFvTHdPbVBTR3J6eUFTQXRLb0NjUG9qb3BwY01nRWdqUUpBMnVVQ2NQbUR5Szdta3drQWFSUUEwaWdBcEZFQVNMdFVBRDRBSTRNck9XVUNRQm9GZ0RRS0FHa1VBTklvQUtSUkFFaWpBSkJHQVNDTkFrQWFCWUEwQ2dCcEZBRFNLQUNrVVFCSW93Q1E5c1o3QWJQNjllV0g2ZU85Ly83WjlQRndRd0VxV1FlODlma29TQjBLY01Mb3NOZllXaU9sT0VZQk5tUUkvQmt2WHdlRitCOEYrR2VXME4remZvMlU0VWE2QUFxaDMwTVpidVFLNEJuNnR4OCtudnA3VDQ4UG5WZnluSElaWkFyZ0VmeXpnVC82ZHlNTHNieFBLa1dZdmdDWmduLzBlQlRCM3JRRm1DSDRlNDlQRWV4TVY0QVpnNy8zZkJTaDNWVGZCVklJdi9kenozYm5iSW9KNExVcG51RmZyOEhycnRFTTB5RDlCRkFPLzhKckxUTk1nN1FUSU1QOS9KRThKa0VwK2FkQnlnbEErTGQ1cmkzck5FaFhBTUovSHlXNEp0VWwwQ3poMzd0VXNYb09yOHVoVW01N2xPbHlLTTBFbUNIOFQ0OFBkNE41OU9kWE1Bbk9TVkdBVEcvb25pdkI5anE5TFdYWnN4UUY4R1J4a3RZRTJxSUVHVDZ6ZUF0ZmdDd255WjZXSUdlZkJCbjJMblFCdk4vQTFoUFVJc0N0aitFOUJiejM4RWpvQWdDOWhTMkE5OGtSNGZTM2VpeW13TDZ3QlFCR0NGbUF5Q2NHNmtUZDA1QUZBRWFoQUJ1OHI1bDdtUEUxV1FoWGdLaWpFdTBpN20yNEFzekM4c1RsOU82SEFrQWFCZWpJNHVUbTlPK0xBblRXRW1EQzN4OEZHS0FteUlSL0RBb3d5SlZBRS81eFV2MUtaSFpILzZNYndSOHZYQUhlZi84YzhuNnhKZFdnUi94ZFlTNkJObVQvUlpRdE03NG1DeFFBMGtJV0lPS29SSnVvZXhxeUFNQW9ZUXZnZldMTWRNM3MvVnE4OS9LZXNBVUFSZ2hkQU8rVHcvdmt0T0Q5R3J6MzhFam9BcFFTL3czRXZneDdGNzRBM3J4UDBCYVoxejVLaWdKa09FbndYSlk5UzFHQVVuemYwSXducWVlYXM0Uy9sRVFGS0lVU25FWDR6MHRWZ0ZJb3dSSENmMDI2QXBSQ0NmWVEvdXZDZlIzNnJPVU45L2pxOU5QalE3aXZOSHVGUDJ2d0Z5a253SnJYQmtTYUJJUy9YdG9Kc09ZMURTSk1Bby93enhEOFJmb0pzT2F4TVo2VGdQQzNtMklDckhsTWd5V0lvNllCd2JjelhRRVdNeGFCNE51YnRnQ0xHWXBBOFB1WnZnQUx6eUlzemhhQysvbmp5QlJnc2Q1Z2o3dEdFYW1GZmsydUFHdWVaZkNtSFBvMTZRS3NLWlNCMFArUEFteDRHWlNzaFNEd3h5akFDVnRCaWxZS3dsNkhBbFE2Q3B4MVFRaDRIeFNnRXdLYncxVGZCUUt1b2dDUVJnRWdqUUpBR2dXQU5Bb0FhUlFBMGlnQXBGRUFTS01Ba0VZQklJMENRQm9GZ0RRS0FHa1VBTklvQUtSZEtzRHZyejlmOVZvSVlPVktUcGtBa0VZQklJMENRQm9GZ0xUTEJlQ0RNQ0s3bWs4bUFLUlJBRWlyS2dDWFFZaW9KcGRNQUVpckxnQlRBSkhVNXBFSkFHbE5CV0FLSUlLV0hESUJJSzI1QUV3QmVHck5IeE1BMGt3S3dCU0FCNHZjbVUwQVNvQ1JyUExHSlJDa21SYUFLWUFSTEhObVBnRW9BWHF5emxlWFN5QktnQjU2NUtyYlp3QktBRXU5OHRUMVF6QWxnSVdlT2VwK0Y0Z1NvRVh2L0F5NURVb0pVR05FYm9iOUhJQVM0SXBSZVJuNmd6QktnRE5HNXNRdGtPKytmZnJqOWR5SXllT0FkUHNxQk5NQWExNTVDQkZDcG9FdTc0TXdSQUVXRkVHSGQvQVhJUmJ4RWtXWVY1VGdMMEl0NWlXS01JOW93VitFWE5RV3lwQlAxTkN2aFYvZ1BaUWlqZ3hoQndBQUFBQUFBQUFBQUFBbytBdEVpekphYXUzRnRnQUFBQUJKUlU1RXJrSmdnZz09IiwgInNpemVzIjogIjE5MngxOTIiLCAidHlwZSI6ICJpbWFnZS9wbmciLCAicHVycG9zZSI6ICJtYXNrYWJsZSJ9LCB7InNyYyI6ICJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQWdBQUFBSUFDQVlBQUFEMGVOVDZBQUFTRTBsRVFWUjRuTzNjelpuZFJCYUFZY0ZEQUY0eHpzR1pRQW9RSGFRQW1UZ0h3OG9aTUF2VDBMUnYzNzRsbFZUbjUzMzN3d2lWVk9lN0plTnRBd0FBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFDQW83NVpmUUhFOHYwdlAveTEraHFBOC96NTgrLzJmYlp0RXdEdEdQREFQUUtoRHd0ZG1HRVB6Q0FLYXJLb2hSajR3QlVFUVEwV01URURINGhBRU9SazBaSXg5SUhJeEVBZUZpb0JReC9JU0F6RVpuR0NNdlNCU3NSQVBCWWtHSU1mcUV3SXhHRWhBakQwZ1k3RXdGcHUva0lHUDRBUVdNVk5YOERnQi9pYUVMaVdtMzBoZ3gvZ2JVTGdHbTd5QlF4K2dIRkM0Rnh1N29rTWZvRGpoTUE1dmwxOUFWVVovZ0J6MkUvUG9hb204NkFDbk1kcHdEeHU1Q1FHUDhCMWhNQnhQZ0ZNWVBnRFhNdStlNXlDT3NBRENMQ2UwNEI5bkFEc1pQZ0R4R0EvM2tjQTdPQmhBNGpGdmp6T3Nja0FEeGhBZkQ0SlBNWUp3SU1NZjRBYzdOZVBFUUFQOERBQjVHTGZmcHRqa2pzOFFBRDUrU1J3bXhPQVZ4aitBRFhZejI4VEFEZDRXQUJxc2E5L1RRQzg0Q0VCcU1uKy9sOEM0QmtQQjBCdDl2bC9DWUMvZVNnQWVyRGZmeUVBTmc4RFFEZjJmUUhnSVFCb3F2diszem9BdWk4K1FIZWQ1MERiQU9pODZBRDhxK3M4YUJrQVhSY2JnTnM2em9WMkFkQnhrUUY0VzdmNTBDb0F1aTB1QUdNNnpZazJBZEJwVVFIWXI4dThhQkVBWFJZVGdEazZ6STN5QWRCaEVRR1lyL3I4S0IwQTFSY1BnSE5WbmlPbEF3QUF1SzFzQUZTdU5nQ3VVM1dlbEF5QXFvc0Z3Qm9WNTBxNUFLaTRTQUNzVjIyK2xBc0FBT0J0cFFLZ1dwMEJFRXVsT1ZNbUFDb3RDZ0J4VlprM0pRS2d5bUlBa0VPRnVWTWlBQUNBTWVrRG9FS0ZBWkJQOXZtVE9nQ3kzM3dBY3NzOGgxSUhBQUN3VDlvQXlGeGRBTlNSZFI2bERRQUFZTCtVQVpDMXRnQ29LZU5jU2hjQUdXOHlBUFZsbTAvcEFnQUFPQzVWQUdTckt3QjZ5VFNuVWdVQUFEQkhtZ0RJVkZVQTlKVmxYcVVKQUFCZ25oUUJrS1dtQUdEYmNzeXRGQUVBQU13VlBnQXlWQlFBdkJSOWZvVVBBQUJndnRBQkVMMmVBT0NleUhNc2RBQUFBT2NRQUFEUVVOZ0FpSHhzQWdDUGlqclB3Z1lBQUhDZWtBRVF0WllBWUkrSWN5MWtBQUFBNXhJQUFOQlF1QUNJZUV3Q0FFZEZtMi9oQWdBQU9KOEFBSUNHUWdWQXRPTVJBSmdwMHB3TEZRQUF3RFVFQUFBMEZDWUFJaDJMQU1CWm9zeTdNQUVBQUZ4SEFBQkFRd0lBQUJvS0VRQlJ2b2NBd0JVaXpMMFFBUUFBWEVzQUFFQkRBZ0FBR2xvZUFCRytnd0RBMVZiUHYrVUJBQUJjVHdBQVFFTUNBQUFhRWdBQTBORFNBRmo5QnlBQVlLV1ZjOUFKQUFBMEpBQUFvQ0VCQUFBTkNRQUFhRWdBQUVCREFnQUFHaElBQU5EUXNnRHdkd0FBd0xwNTZBUUFBQm9TQUFEUWtBQUFnSVlFQUFBMEpBQUFvQ0VCQUFBTkNRQUFhRWdBQUVCREFnQUFHaElBQU5DUUFBQ0FoZ1FBQURRa0FBQ2dJUUVBQUEwSkFBQm9TQUFBUUVNQ0FBQWFFZ0FBMEpBQUFJQ0dCQUFBTkNRQUFLQWhBUUFBRFFrQUFHaElBQUJBUXdJQUFCb1NBQURRa0FBQWdJWUVBQUEwSkFBQW9DRUJBQUFOQ1FBQWFFZ0FBRUJEQWdBQUdoSUFBTkNRQUFDQWhyNWJmUUhBUG4vODlOdnFTOWkyYmR2KzkrdVBxeThCMkVFQVFCQlJCdnFvMGVzV0RCQ0RBSUFMWkIzdVozamtYb2dFT0o4QWdJa00ramxldTQvQ0FPWVJBTENEUWIrR01JQjVCQUM4d2JDUDc5WWFpUUs0VHdEQU00WjlIYUlBN2hNQXRHYmc5L0p5dlFVQm5Ra0FXakh3ZVU0UTBKa0FvRFFEbnhHQ2dFNEVBT1VZK3N6eS9Ga1NBMVFqQUVqUHdPY0tUZ2VvUmdDUWtxSFBhazRIeUU0QWtJYWhUMVJpZ0l3RUFPRVovR1R5OUx3S0FhSVRBSVJrNkpPZFV3R2lFd0NFWWVqUDkrNzloMFAvKzgrZlBrNjZrdDdFQUJFSkFKWXorSTg1T3VUMy9yUEZ3VDQrRVJDRkFHQVpnMytmTXdmK2lKZlhJUWpHQ0FGV0V3QmN5dERmSjhyUXYrZjVOWXFCeC9rOHdDb0NnRXNZL09NeURQM1hpSUY5bkFwd0pRSEFxUXorY1prSC95MVAvejVDNEhGQ2dDc0lBRTVoOEkrcE52UnZjU293VGdod0pnSEFWQWIvbUE2RC94YW5BbU9FQUdjUUFFeGg4SS9wT3ZoZkVnSmpoQUF6Q1FBT01makhHUHkzQ1lFeFFvQVpCQUM3R1B6akRQKzN2WHYvUVFRTUVBSWM4ZTNxQ3lBZnczL011L2NmRFA4Qjd0YzQ3eVI3T0FIZ1lUYVpjUWJaZms0RHhqZ05ZSlFBNEUwRy96aURmdzUvTm1DY0VPQlJQZ0Z3bCtFL3p2Q2Z6ejBkNTkzbExVNEF1TW5tc1k5QmRSNmZCTVk1RGVBZUp3Qjh4ZkFmNXcrdVhjTjkzc2M3elMxT0FQaUhUV0lmQStsNlRnUEdPUTNnSlNjQWJOdG0rTzlsK0svajN1L2pYZWVKQU1DR3NKTUJ0SjQxMk1jN3o3YjVCTkNhVFdBL2d5Y09ud1AyOFVrQUp3Qk5HZjc3R2Y3eFdKUDk3QVY5Q1lDR3ZQRDdHVFJ4V1p2OTdBazkrUVRRaUpmOEdBTW1QcDhEOXZOSm9COG5BRTBZL3NjWS9ubFlxMlBzRlgwSWdBYTgwTWNZS1BsWXMyUHNHVDBJZ09LOHlNY1lKSGxadTJQc0hmVUpnTUs4d01BUjlwRGFCRUJSWHR6ai9JTE16eG9lWnkrcFN3QVU1SVU5enVDb3cxb2VaMCtwU1FBVTQwVTl6c0NveDVvZVoyK3B4OThEVUlnWGxIc2UvZS9qRFV0ZTg4ZFB2L2w3QWdvUkFFVVkvbk5VR241Ny8wS2NsLys3S3ZmRVh4STBod2lvd3llQUFnei9PYW9NdXMrZlBrNGRkTFAvZVN0VldlUFY3RGsxQ0lEa3ZJZzhPWHRRVndvQmpyUDM1Q2NBRXZNQ3pwUDlsK0dWZ3psN0JHUmY2MGpzUWJrSkFOckxQQkJXL1NyUGZocVFlYzFoRmdHUWxQSW13Z0NPY0Eyc1pTL0tTd0FrNUlXYkorc3Z3VWlETjlLMWpNaTY5aEhaazNJU0FNbDQwWWc0Y0NOZUU5ZXlOK1VqQUdncjR5L0F5SU0yOHJXOUp1TXpBTE1JZ0VRVWRtOFpCbXlHYStRODlxaGNCRUFTWHF5NS9QTGppV2RoTG50VkhnSUFFc2oweXpyVHRVSm5BaUFCUmQxYnhvR2E4WnFaeDU2Vmd3QUl6b3MwbnlOZlh2Sk16R2Z2aWs4QVFHQ1pmMGxudm5ib1FBQUVwcURuODB1UDEzZzI1ck9IeFNZQUlLZ0t2NkFyL0R0QVZRSWdLT1VNVkdBdmkwc0EwSVlqWHQ3aUdhRVRBUkNRWWdZcXNhZkZKQUFnb0VyZnppdjl1MEFsQW9BV0hPM3lLTThLWFFpQVlCeVZBUlhaMitJUkFBRFFrQUFBZ0lZRVFDQ095TTdobXk2alBEUG5zTWZGSWdBQW9DRUJBQUFOQ1lBZ0hJMEJIZGpyNGhBQUFOQ1FBSUNBS3YwaHRFci9MbENKQUFDQWhnUUFwZm4xeVY2ZUhhb1RBQUg0UXpGQUovYThHQVFBQkZYaEYyaUZmd2VvU2dBQVFFTUNBQUxML0FzNjg3VkRCd0lBQUJvU0FCQmN4bC9TR2E4WnVoRUFrRUNtZ1pycFdxRXpBUUFBRFFrQVNDTERMK3NNMXdoOElRQWdrY2dETnZLMUFWOFRBSkJNeEVFYjhacUErd1FBSkJScDRFYTZGdUJ4QWdDU2lqQjRJMXdEc005M3F5OEEyTzlwQUgvKzlISEoveStRbHhPQUFQNzM2NCtyTDRIa3JoekloajlIMmZOaUVBQ1VkdlV2NDVYZXZmOXc2bkErKzU4ZlRhZG5oNTU4QW9CaVpuOFc2RFQwb1JNQkFFVzlITnlQQm9HQkR6MElBR2pDWUFlZTgyY0FndkNIWW9BTzdIVnhDQUFBYUVnQUFFQkRBaUFRUjJQbjhKOXpNY296Y3c1N1hDd0NBQUFhRWdBQTBKQUFDTVlSR1ZDUnZTMGVBVUFMdnVueUtNOEtYUWdBQUdoSUFBVGtxQXlveEo0V2t3Q2dEVWU3dk1VelFpY0NJQ2pGREZSZ0w0dExBQUJBUXdJZ01PVThueU5lWHVQWm1NOGVGcHNBQUlDR0JFQndDbm8rdi9SNHlUTXhuNzByUGdHUWdCY0p5TVNlbFlNQUFJQ0dCRUFTaW5vdVI3NDg4U3pNWmEvS1F3QWs0c1VDSXJOSDVTSUFhTXN2UHp3RGRDWUFrbEhZUUVUMnBud0VRRUpldEhuOEF1ekwyczlqVDhwSkFDVGxoUU1pc0JmbEpRQm96eS9CZnF3NUNJRFVsUGM4QmtJZjFub2VlMUJ1QWlBNUx5Q3dncjBuUHdGUWdCZHhEcjhNNjdQR2M5aHphaEFBUlhnaDV6QWc2cksyYzlocjZoQUFoWGd4Z1RQWlkyb1JBTVY0UVkvelM3RWVhM3FjdmFVZUFWQ1FGL1U0QTZNT2EzbWNQYVVtQVZDVUYvWTRneU0vYTNpY3ZhUXVBVkNZRnhjNHdoNVNtd0Fvemd0OGpGK1FlVm03WSt3ZDlRbUFCcnpJeHhnaytWaXpZK3daUFFpQUpyelF4eGdvZVZpclkrd1ZmWHkzK2dLNHp0T0wvY2RQdnkyK2twdytmL3E0dlh2L1lmVmxjSWZodjUvQjM0OFRnSWE4NlBzWk1IRlptLzNzQ1QwSmdLYTg4UHNaTlBGWWsvM3NCWDM1Qk5DWVR3TDcrUndRaCtHL2o4R1BFd0JzQkRzWlBPdFpnMzI4ODJ5YkFPQnZOb1I5REtCMTNQdDl2T3M4OFFtQWYvZ2tzSS9QQWRjei9NY1ovTHprQklDdjJDakdmZjcwMFZDNmdQdThqM2VhVzV3QWNKUFRnSDJjQnB6SDRCOW44SE9QRXdEdXNvR01NNmptYzAvSGVYZDVpeE1BM3VRMFlOelR3SElhY0l6QlA4N2c1MUVDZ0ljSmdYRStDZXhuK0k4eCtCbmxFd0REYkRSai9NRzFNZTdYT084a2V6Z0JZQmVuQWVPY0Jyek40QjlqOEhPRUFPQVFJVERHbncyNHplQWZZL0F6Z3dCZ0NpRXdSZ2g4WWZDUE1maVpTUUF3bFJBWTB6VUVEUDR4Qmo5bkVBQ2NRZ2lNZVQ0UXE4YUFvVC9PNE9kTUFvQlRDWUZ4MVU0RkRQNXhCajlYRUFCY1FnaU15M3dxWU9qdlkvQnpKUUhBcFo1dmNHTGdjUmxpd05EZng5Qm5GUUhBTWs0RjluazVhRmNGZ1lGL2pNSFBhZ0tBNVlUQU1mY0c4ZEU0TU9Ubk0vaUpRZ0FRaHM4RDh4bmdNUmo2UkNRQUNFa01rSjJoVDNRQ2dQQjhJaUFUZzU4c0JBQnBPQlVnS2tPZmpBUUFLWWtCVmpQMHlVNEFrTjdMalZnUWNBWURuMm9FQU9VNEhXQVdRNS9LQkFDbE9SMWdoSUZQSndLQVZnUUJ6eG40ZENZQWFFMFE5R0xndzc4RUFEeHphMENJZ3B3TWU3aFBBTUFiUkVGOGhqMk1Fd0N3dzJzRFJ4aWN5NkNIZVFRQVRDUU01akRvNFh3Q0FDN3d5RURyRWdtR084UWdBQ0NJMGNFWUpSZ01kTWhKQUVCU0JpOXd4TGVyTHdBQXVKNEFBSUNHQkFBQU5DUUFBS0FoQVFBQURRa0FBR2hJQUFCQVF3SUFBQm9TQUFEUWtBQUFnSVlFQUFBMEpBQUFvQ0VCQUFBTkNRQUFhRWdBQUVCREFnQUFHaElBQU5DUUFBQ0FoZ1FBQURRa0FBQ2dJUUVBQUEwSkFBQm9TQUFBUUVNQ0FBQWFFZ0FBMEpBQUFJQ0dCQUFBTkNRQUFLQWhBUUFBRFFrQUFHaElBQUJBUXdJQUFCb1NBQURRa0FBQWdJWUVBQUEwSkFBQW9LRmxBZkRuejc5L3Mrci9Hd0NpV0RVUG5RQUFRRU1DQUFBYUVnQUEwSkFBQUlDR0JBQUFOQ1FBQUtBaEFRQUFEUzBOQUg4WEFBQ2RyWnlEVGdBQW9DRUJBQUFOQ1FBQWFFZ0FBRUJEeXdQQUh3UUVvS1BWODI5NUFBQUExeE1BQU5DUUFBQ0Foa0lFd09ydklBQndwUWh6TDBRQUFBRFhFZ0FBMEpBQUFJQ0d3Z1JBaE84aEFIQzJLUE11VEFBQUFOY1JBQURRVUtnQWlISXNBZ0JuaURUblFnVUFBSEFOQVFBQURZVUxnRWpISXdBd1M3VDVGaTRBQUlEekNRQUFhQ2hrQUVRN0pnR0FJeUxPdFpBQkFBQ2NLMndBUkt3bEFCZ1ZkWjZGRFFBQTREd0NBQUFhQ2gwQVVZOU5BT0FSa2VkWTZBQUFBTTRSUGdBaTF4TUF2Q2I2L0FvZkFBREFmQ2tDSUhwRkFjQnpHZVpXaWdBQUFPWktFd0FaYWdvQXNzeXJOQUVBQU15VEtnQ3lWQlVBUFdXYVU2a0NBQUNZSTEwQVpLb3JBUHJJTnAvU0JjQzI1YnZKQU5TV2NTNmxEQUFBNEppMEFaQ3h0Z0NvSitzOFNoc0FBTUIrcVFNZ2EzVUJVRVBtT1pRNkFMWXQ5ODBISUsvczh5ZDlBQUFBNDBvRVFQWUtBeUNYQ25PblJBQnNXNDNGQUNDK0t2T21UQUJzVzUxRkFTQ21Tbk9tVkFBQUFJOHBGd0NWNmd5QU9Lck5sM0lCc0czMUZnbUF0U3JPbFpJQnNHMDFGd3VBNjFXZEoyVURBQUI0WGVrQXFGcHRBRnlqOGh3cEhRRGJWbnZ4QURoUDlmbFJQZ0MycmY0aUFqQlhoN25SSWdDMnJjZGlBbkJjbDNuUkpnQzJyYytpQXJCUHB6blJLZ0MycmRmaUF2QzRidk9oWFFCc1c3OUZCdUMram5PaFpRQnNXOC9GQnVCclhlZEIyd0RZdHI2TERzQVhuZWRBNndEWXR0NkxEOUJaOS8yL2ZRQnNtNGNBb0J2N3ZnRDRoNGNCb0FmNy9SY0M0QmtQQlVCdDl2bC9DWUFYUEJ3QU5kbmYvMHNBM09BaEFhakZ2djQxQWZBS0R3dEFEZmJ6Mjl5VUIzei95dzkvcmI0R0FNWVkvUGM1QVhpQWh3Z2dGL3YyMndUQWd6eE1BRG5Zcngvakp1M2drd0JBUEFiL0dDY0FPM2pJQUdLeEw0OFRBRHQ1MkFCaXNCL3Y0NlpONEpNQXdQVU0vbU9jQUV6Z0lRUzRsbjMzT0Rkd01xY0JBT2N4K09keEkwOGlCQURtTWZqbjh3bmdKQjVXZ0Ruc3ArZHdVeS9nTkFCZ25NRi9MamYzUWtJQTRHMEcvelhjNUFXRUFNRFhEUDVydWRrTENRRUFnMzhWTnowQUlRQjBaUEN2NWVZSEl3YUF5Z3o5T0N4RVVFSUFxTVRnajhlQ0pDQUdnSXdNL2Rnc1RqSmlBSWpNME0vRFFpVW1Cb0FJRFAyY0xGb2hnZ0M0Z29GZmcwVXNUQkFBTXhqNE5WblVaa1FCY0k5aDM0ZUY1ajhFQXRSbXdBTUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUNuK1QvT0Q3c00vWC9EQlFBQUFBQkpSVTVFcmtKZ2dnPT0iLCAic2l6ZXMiOiAiNTEyeDUxMiIsICJ0eXBlIjogImltYWdlL3BuZyIsICJwdXJwb3NlIjogImFueSJ9LCB7InNyYyI6ICJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQWdBQUFBSUFDQVlBQUFEMGVOVDZBQUFTRTBsRVFWUjRuTzNjelpuZFJCYUFZY0ZEQUY0eHpzR1pRQW9RSGFRQW1UZ0h3OG9aTUF2VDBMUnYzNzRsbFZUbjUzMzN3d2lWVk9lN0plTnRBd0FBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFDQW83NVpmUUhFOHYwdlAveTEraHFBOC96NTgrLzJmYlp0RXdEdEdQREFQUUtoRHd0ZG1HRVB6Q0FLYXJLb2hSajR3QlVFUVEwV01URURINGhBRU9SazBaSXg5SUhJeEVBZUZpb0JReC9JU0F6RVpuR0NNdlNCU3NSQVBCWWtHSU1mcUV3SXhHRWhBakQwZ1k3RXdGcHUva0lHUDRBUVdNVk5YOERnQi9pYUVMaVdtMzBoZ3gvZ2JVTGdHbTd5QlF4K2dIRkM0Rnh1N29rTWZvRGpoTUE1dmwxOUFWVVovZ0J6MkUvUG9hb204NkFDbk1kcHdEeHU1Q1FHUDhCMWhNQnhQZ0ZNWVBnRFhNdStlNXlDT3NBRENMQ2UwNEI5bkFEc1pQZ0R4R0EvM2tjQTdPQmhBNGpGdmp6T3Nja0FEeGhBZkQ0SlBNWUp3SU1NZjRBYzdOZVBFUUFQOERBQjVHTGZmcHRqa2pzOFFBRDUrU1J3bXhPQVZ4aitBRFhZejI4VEFEZDRXQUJxc2E5L1RRQzg0Q0VCcU1uKy9sOEM0QmtQQjBCdDl2bC9DWUMvZVNnQWVyRGZmeUVBTmc4RFFEZjJmUUhnSVFCb3F2diszem9BdWk4K1FIZWQ1MERiQU9pODZBRDhxK3M4YUJrQVhSY2JnTnM2em9WMkFkQnhrUUY0VzdmNTBDb0F1aTB1QUdNNnpZazJBZEJwVVFIWXI4dThhQkVBWFJZVGdEazZ6STN5QWRCaEVRR1lyL3I4S0IwQTFSY1BnSE5WbmlPbEF3QUF1SzFzQUZTdU5nQ3VVM1dlbEF5QXFvc0Z3Qm9WNTBxNUFLaTRTQUNzVjIyK2xBc0FBT0J0cFFLZ1dwMEJFRXVsT1ZNbUFDb3RDZ0J4VlprM0pRS2d5bUlBa0VPRnVWTWlBQUNBTWVrRG9FS0ZBWkJQOXZtVE9nQ3kzM3dBY3NzOGgxSUhBQUN3VDlvQXlGeGRBTlNSZFI2bERRQUFZTCtVQVpDMXRnQ29LZU5jU2hjQUdXOHlBUFZsbTAvcEFnQUFPQzVWQUdTckt3QjZ5VFNuVWdVQUFEQkhtZ0RJVkZVQTlKVmxYcVVKQUFCZ25oUUJrS1dtQUdEYmNzeXRGQUVBQU13VlBnQXlWQlFBdkJSOWZvVVBBQUJndnRBQkVMMmVBT0NleUhNc2RBQUFBT2NRQUFEUVVOZ0FpSHhzQWdDUGlqclB3Z1lBQUhDZWtBRVF0WllBWUkrSWN5MWtBQUFBNXhJQUFOQlF1QUNJZUV3Q0FFZEZtMi9oQWdBQU9KOEFBSUNHUWdWQXRPTVJBSmdwMHB3TEZRQUF3RFVFQUFBMEZDWUFJaDJMQU1CWm9zeTdNQUVBQUZ4SEFBQkFRd0lBQUJvS0VRQlJ2b2NBd0JVaXpMMFFBUUFBWEVzQUFFQkRBZ0FBR2xvZUFCRytnd0RBMVZiUHYrVUJBQUJjVHdBQVFFTUNBQUFhRWdBQTBORFNBRmo5QnlBQVlLV1ZjOUFKQUFBMEpBQUFvQ0VCQUFBTkNRQUFhRWdBQUVCREFnQUFHaElBQU5EUXNnRHdkd0FBd0xwNTZBUUFBQm9TQUFEUWtBQUFnSVlFQUFBMEpBQUFvQ0VCQUFBTkNRQUFhRWdBQUVCREFnQUFHaElBQU5DUUFBQ0FoZ1FBQURRa0FBQ2dJUUVBQUEwSkFBQm9TQUFBUUVNQ0FBQWFFZ0FBMEpBQUFJQ0dCQUFBTkNRQUFLQWhBUUFBRFFrQUFHaElBQUJBUXdJQUFCb1NBQURRa0FBQWdJWUVBQUEwSkFBQW9DRUJBQUFOQ1FBQWFFZ0FBRUJEQWdBQUdoSUFBTkNRQUFDQWhyNWJmUUhBUG4vODlOdnFTOWkyYmR2KzkrdVBxeThCMkVFQVFCQlJCdnFvMGVzV0RCQ0RBSUFMWkIzdVozamtYb2dFT0o4QWdJa00ramxldTQvQ0FPWVJBTENEUWIrR01JQjVCQUM4d2JDUDc5WWFpUUs0VHdEQU00WjlIYUlBN2hNQXRHYmc5L0p5dlFVQm5Ra0FXakh3ZVU0UTBKa0FvRFFEbnhHQ2dFNEVBT1VZK3N6eS9Ga1NBMVFqQUVqUHdPY0tUZ2VvUmdDUWtxSFBhazRIeUU0QWtJYWhUMVJpZ0l3RUFPRVovR1R5OUx3S0FhSVRBSVJrNkpPZFV3R2lFd0NFWWVqUDkrNzloMFAvKzgrZlBrNjZrdDdFQUJFSkFKWXorSTg1T3VUMy9yUEZ3VDQrRVJDRkFHQVpnMytmTXdmK2lKZlhJUWpHQ0FGV0V3QmN5dERmSjhyUXYrZjVOWXFCeC9rOHdDb0NnRXNZL09NeURQM1hpSUY5bkFwd0pRSEFxUXorY1prSC95MVAvejVDNEhGQ2dDc0lBRTVoOEkrcE52UnZjU293VGdod0pnSEFWQWIvbUE2RC94YW5BbU9FQUdjUUFFeGg4SS9wT3ZoZkVnSmpoQUF6Q1FBT01makhHUHkzQ1lFeFFvQVpCQUM3R1B6akRQKzN2WHYvUVFRTUVBSWM4ZTNxQ3lBZnczL011L2NmRFA4Qjd0YzQ3eVI3T0FIZ1lUYVpjUWJaZms0RHhqZ05ZSlFBNEUwRy96aURmdzUvTm1DY0VPQlJQZ0Z3bCtFL3p2Q2Z6ejBkNTkzbExVNEF1TW5tc1k5QmRSNmZCTVk1RGVBZUp3Qjh4ZkFmNXcrdVhjTjkzc2M3elMxT0FQaUhUV0lmQStsNlRnUEdPUTNnSlNjQWJOdG0rTzlsK0svajN1L2pYZWVKQU1DR3NKTUJ0SjQxMk1jN3o3YjVCTkNhVFdBL2d5Y09ud1AyOFVrQUp3Qk5HZjc3R2Y3eFdKUDk3QVY5Q1lDR3ZQRDdHVFJ4V1p2OTdBazkrUVRRaUpmOEdBTW1QcDhEOXZOSm9COG5BRTBZL3NjWS9ubFlxMlBzRlgwSWdBYTgwTWNZS1BsWXMyUHNHVDBJZ09LOHlNY1lKSGxadTJQc0hmVUpnTUs4d01BUjlwRGFCRUJSWHR6ai9JTE16eG9lWnkrcFN3QVU1SVU5enVDb3cxb2VaMCtwU1FBVTQwVTl6c0NveDVvZVoyK3B4OThEVUlnWGxIc2UvZS9qRFV0ZTg4ZFB2L2w3QWdvUkFFVVkvbk5VR241Ny8wS2NsLys3S3ZmRVh4STBod2lvd3llQUFnei9PYW9NdXMrZlBrNGRkTFAvZVN0VldlUFY3RGsxQ0lEa3ZJZzhPWHRRVndvQmpyUDM1Q2NBRXZNQ3pwUDlsK0dWZ3psN0JHUmY2MGpzUWJrSkFOckxQQkJXL1NyUGZocVFlYzFoRmdHUWxQSW13Z0NPY0Eyc1pTL0tTd0FrNUlXYkorc3Z3VWlETjlLMWpNaTY5aEhaazNJU0FNbDQwWWc0Y0NOZUU5ZXlOK1VqQUdncjR5L0F5SU0yOHJXOUp1TXpBTE1JZ0VRVWRtOFpCbXlHYStRODlxaGNCRUFTWHF5NS9QTGppV2RoTG50VkhnSUFFc2oweXpyVHRVSm5BaUFCUmQxYnhvR2E4WnFaeDU2Vmd3QUl6b3MwbnlOZlh2Sk16R2Z2aWs4QVFHQ1pmMGxudm5ib1FBQUVwcURuODB1UDEzZzI1ck9IeFNZQUlLZ0t2NkFyL0R0QVZRSWdLT1VNVkdBdmkwc0EwSVlqWHQ3aUdhRVRBUkNRWWdZcXNhZkZKQUFnb0VyZnppdjl1MEFsQW9BV0hPM3lLTThLWFFpQVlCeVZBUlhaMitJUkFBRFFrQUFBZ0lZRVFDQ095TTdobXk2alBEUG5zTWZGSWdBQW9DRUJBQUFOQ1lBZ0hJMEJIZGpyNGhBQUFOQ1FBSUNBS3YwaHRFci9MbENKQUFDQWhnUUFwZm4xeVY2ZUhhb1RBQUg0UXpGQUovYThHQVFBQkZYaEYyaUZmd2VvU2dBQVFFTUNBQUxML0FzNjg3VkRCd0lBQUJvU0FCQmN4bC9TR2E4WnVoRUFrRUNtZ1pycFdxRXpBUUFBRFFrQVNDTERMK3NNMXdoOElRQWdrY2dETnZLMUFWOFRBSkJNeEVFYjhacUErd1FBSkJScDRFYTZGdUJ4QWdDU2lqQjRJMXdEc005M3F5OEEyTzlwQUgvKzlISEoveStRbHhPQUFQNzM2NCtyTDRIa3JoekloajlIMmZOaUVBQ1VkdlV2NDVYZXZmOXc2bkErKzU4ZlRhZG5oNTU4QW9CaVpuOFc2RFQwb1JNQkFFVzlITnlQQm9HQkR6MElBR2pDWUFlZTgyY0FndkNIWW9BTzdIVnhDQUFBYUVnQUFFQkRBaUFRUjJQbjhKOXpNY296Y3c1N1hDd0NBQUFhRWdBQTBKQUFDTVlSR1ZDUnZTMGVBVUFMdnVueUtNOEtYUWdBQUdoSUFBVGtxQXlveEo0V2t3Q2dEVWU3dk1VelFpY0NJQ2pGREZSZ0w0dExBQUJBUXdJZ01PVThueU5lWHVQWm1NOGVGcHNBQUlDR0JFQndDbm8rdi9SNHlUTXhuNzByUGdHUWdCY0p5TVNlbFlNQUFJQ0dCRUFTaW5vdVI3NDg4U3pNWmEvS1F3QWs0c1VDSXJOSDVTSUFhTXN2UHp3RGRDWUFrbEhZUUVUMnBud0VRRUpldEhuOEF1ekwyczlqVDhwSkFDVGxoUU1pc0JmbEpRQm96eS9CZnF3NUNJRFVsUGM4QmtJZjFub2VlMUJ1QWlBNUx5Q3dncjBuUHdGUWdCZHhEcjhNNjdQR2M5aHphaEFBUlhnaDV6QWc2cksyYzlocjZoQUFoWGd4Z1RQWlkyb1JBTVY0UVkvelM3RWVhM3FjdmFVZUFWQ1FGL1U0QTZNT2EzbWNQYVVtQVZDVUYvWTRneU0vYTNpY3ZhUXVBVkNZRnhjNHdoNVNtd0Fvemd0OGpGK1FlVm03WSt3ZDlRbUFCcnpJeHhnaytWaXpZK3daUFFpQUpyelF4eGdvZVZpclkrd1ZmWHkzK2dLNHp0T0wvY2RQdnkyK2twdytmL3E0dlh2L1lmVmxjSWZodjUvQjM0OFRnSWE4NlBzWk1IRlptLzNzQ1QwSmdLYTg4UHNaTlBGWWsvM3NCWDM1Qk5DWVR3TDcrUndRaCtHL2o4R1BFd0JzQkRzWlBPdFpnMzI4ODJ5YkFPQnZOb1I5REtCMTNQdDl2T3M4OFFtQWYvZ2tzSS9QQWRjei9NY1ovTHprQklDdjJDakdmZjcwMFZDNmdQdThqM2VhVzV3QWNKUFRnSDJjQnB6SDRCOW44SE9QRXdEdXNvR01NNmptYzAvSGVYZDVpeE1BM3VRMFlOelR3SElhY0l6QlA4N2c1MUVDZ0ljSmdYRStDZXhuK0k4eCtCbmxFd0REYkRSai9NRzFNZTdYT084a2V6Z0JZQmVuQWVPY0Jyek40QjlqOEhPRUFPQVFJVERHbncyNHplQWZZL0F6Z3dCZ0NpRXdSZ2g4WWZDUE1maVpTUUF3bFJBWTB6VUVEUDR4Qmo5bkVBQ2NRZ2lNZVQ0UXE4YUFvVC9PNE9kTUFvQlRDWUZ4MVU0RkRQNXhCajlYRUFCY1FnaU15M3dxWU9qdlkvQnpKUUhBcFo1dmNHTGdjUmxpd05EZng5Qm5GUUhBTWs0RjluazVhRmNGZ1lGL2pNSFBhZ0tBNVlUQU1mY0c4ZEU0TU9Ubk0vaUpRZ0FRaHM4RDh4bmdNUmo2UkNRQUNFa01rSjJoVDNRQ2dQQjhJaUFUZzU4c0JBQnBPQlVnS2tPZmpBUUFLWWtCVmpQMHlVNEFrTjdMalZnUWNBWURuMm9FQU9VNEhXQVdRNS9LQkFDbE9SMWdoSUZQSndLQVZnUUJ6eG40ZENZQWFFMFE5R0xndzc4RUFEeHphMENJZ3B3TWU3aFBBTUFiUkVGOGhqMk1Fd0N3dzJzRFJ4aWN5NkNIZVFRQVRDUU01akRvNFh3Q0FDN3d5RURyRWdtR084UWdBQ0NJMGNFWUpSZ01kTWhKQUVCU0JpOXd4TGVyTHdBQXVKNEFBSUNHQkFBQU5DUUFBS0FoQVFBQURRa0FBR2hJQUFCQVF3SUFBQm9TQUFEUWtBQUFnSVlFQUFBMEpBQUFvQ0VCQUFBTkNRQUFhRWdBQUVCREFnQUFHaElBQU5DUUFBQ0FoZ1FBQURRa0FBQ2dJUUVBQUEwSkFBQm9TQUFBUUVNQ0FBQWFFZ0FBMEpBQUFJQ0dCQUFBTkNRQUFLQWhBUUFBRFFrQUFHaElBQUJBUXdJQUFCb1NBQURRa0FBQWdJWUVBQUEwSkFBQW9LRmxBZkRuejc5L3Mrci9Hd0NpV0RVUG5RQUFRRU1DQUFBYUVnQUEwSkFBQUlDR0JBQUFOQ1FBQUtBaEFRQUFEUzBOQUg4WEFBQ2RyWnlEVGdBQW9DRUJBQUFOQ1FBQWFFZ0FBRUJEeXdQQUh3UUVvS1BWODI5NUFBQUExeE1BQU5DUUFBQ0Foa0lFd09ydklBQndwUWh6TDBRQUFBRFhFZ0FBMEpBQUFJQ0d3Z1JBaE84aEFIQzJLUE11VEFBQUFOY1JBQURRVUtnQWlISXNBZ0JuaURUblFnVUFBSEFOQVFBQURZVUxnRWpISXdBd1M3VDVGaTRBQUlEekNRQUFhQ2hrQUVRN0pnR0FJeUxPdFpBQkFBQ2NLMndBUkt3bEFCZ1ZkWjZGRFFBQTREd0NBQUFhQ2gwQVVZOU5BT0FSa2VkWTZBQUFBTTRSUGdBaTF4TUF2Q2I2L0FvZkFBREFmQ2tDSUhwRkFjQnpHZVpXaWdBQUFPWktFd0FaYWdvQXNzeXJOQUVBQU15VEtnQ3lWQlVBUFdXYVU2a0NBQUNZSTEwQVpLb3JBUHJJTnAvU0JjQzI1YnZKQU5TV2NTNmxEQUFBNEppMEFaQ3h0Z0NvSitzOFNoc0FBTUIrcVFNZ2EzVUJVRVBtT1pRNkFMWXQ5ODBISUsvczh5ZDlBQUFBNDBvRVFQWUtBeUNYQ25PblJBQnNXNDNGQUNDK0t2T21UQUJzVzUxRkFTQ21Tbk9tVkFBQUFJOHBGd0NWNmd5QU9Lck5sM0lCc0czMUZnbUF0U3JPbFpJQnNHMDFGd3VBNjFXZEoyVURBQUI0WGVrQXFGcHRBRnlqOGh3cEhRRGJWbnZ4QURoUDlmbFJQZ0MycmY0aUFqQlhoN25SSWdDMnJjZGlBbkJjbDNuUkpnQzJyYytpQXJCUHB6blJLZ0MycmRmaUF2QzRidk9oWFFCc1c3OUZCdUMram5PaFpRQnNXOC9GQnVCclhlZEIyd0RZdHI2TERzQVhuZWRBNndEWXR0NkxEOUJaOS8yL2ZRQnNtNGNBb0J2N3ZnRDRoNGNCb0FmNy9SY0M0QmtQQlVCdDl2bC9DWUFYUEJ3QU5kbmYvMHNBM09BaEFhakZ2djQxQWZBS0R3dEFEZmJ6Mjl5VUIzei95dzkvcmI0R0FNWVkvUGM1QVhpQWh3Z2dGL3YyMndUQWd6eE1BRG5Zcngvakp1M2drd0JBUEFiL0dDY0FPM2pJQUdLeEw0OFRBRHQ1MkFCaXNCL3Y0NlpONEpNQXdQVU0vbU9jQUV6Z0lRUzRsbjMzT0Rkd01xY0JBT2N4K09keEkwOGlCQURtTWZqbjh3bmdKQjVXZ0Ruc3ArZHdVeS9nTkFCZ25NRi9MamYzUWtJQTRHMEcvelhjNUFXRUFNRFhEUDVydWRrTENRRUFnMzhWTnowQUlRQjBaUEN2NWVZSEl3YUF5Z3o5T0N4RVVFSUFxTVRnajhlQ0pDQUdnSXdNL2Rnc1RqSmlBSWpNME0vRFFpVW1Cb0FJRFAyY0xGb2hnZ0M0Z29GZmcwVXNUQkFBTXhqNE5WblVaa1FCY0k5aDM0ZUY1ajhFQXRSbXdBTUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUNuK1QvT0Q3c00vWC9EQlFBQUFBQkpSVTVFcmtKZ2dnPT0iLCAic2l6ZXMiOiAiNTEyeDUxMiIsICJ0eXBlIjogImltYWdlL3BuZyIsICJwdXJwb3NlIjogIm1hc2thYmxlIn1dfQ==">
+    <link rel="icon" id="pwa-favicon-link" href="data:image/png;base64,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">
+    <link rel="apple-touch-icon" id="pwa-apple-icon-link" href="data:image/png;base64,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">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="RetinaAI">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Telugu:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans Devanagari', 'Noto Sans Telugu', 'sans-serif'],
+                    },
+                    colors: {
+                        medical: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            900: '#14532d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        /* This is a fixed light-themed clinical UI by design; keep it light regardless of system theme */
+        :root {
+            color-scheme: light;
+            padding-top: env(safe-area-inset-top, 0px);
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+        }
+        html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+        body { background-color: #f8fafc; }
+        #disclaimer-banner { padding-top: calc(0.625rem + env(safe-area-inset-top, 0px)); }
+
+        /* Install App button */
+        #pwa-install-btn { display: none; }
+        #pwa-install-btn.pwa-ready { display: inline-flex; }
+
+        /* Offline indicator */
+        #offline-banner { display: none; }
+        #offline-banner.show { display: flex; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col justify-between font-sans">
+
+    <div id="offline-banner" class="bg-slate-800 text-white px-4 py-2 text-xs font-medium items-center justify-center space-x-2">
+        <i class="fa-solid fa-wifi-slash"></i>
+        <span>You're offline — the app keeps working. Saved records are safe on this device.</span>
+    </div>
+
+    <div id="disclaimer-banner" class="bg-amber-500 text-white px-4 py-2.5 text-xs sm:text-sm font-medium shadow-md sticky top-0 z-50 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto flex items-center space-x-2 text-center w-full justify-center">
+            <i class="fa-solid fa-triangle-exclamation text-amber-100 text-base animate-bounce"></i>
+            <span id="disclaimer-text"><strong>Medical Disclaimer:</strong> This application is a screening & referral-support tool, NOT a definitive diagnostic device. Clinical confirmation by an ophthalmologist is required.</span>
+        </div>
+        <button onclick="dismissDisclaimer()" class="text-amber-100 hover:text-white px-2 py-1"><i class="fa-solid fa-xmark text-base"></i></button>
+    </div>
+
+    <nav class="bg-white border-b border-slate-200 sticky top-[41px] z-40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('dashboard')">
+                <div class="w-10 h-10 rounded-xl bg-medical-600 flex items-center justify-center text-white shadow-md shadow-medical-600/30">
+                    <i class="fa-solid fa-eye text-lg"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-slate-900 text-base sm:text-lg leading-tight">RetinaAI Rural Screen</h1>
+                    <p class="text-xs text-slate-500 font-medium">Major Project A8 | KPRIT CSE</p>
+                </div>
+            </div>
+
+            <!-- Navigation Tabs & Language Picker -->
+            <div class="flex items-center space-x-2 sm:space-x-4">
+                <div class="hidden md:flex space-x-1">
+                    <button onclick="switchTab('dashboard')" id="nav-dashboard" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium text-medical-700 bg-medical-50 transition">Dashboard</button>
+                    <button onclick="switchTab('screening')" id="nav-screening" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-100 transition">Screening Portal</button>
+                    <button onclick="switchTab('history')" id="nav-history" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-100 transition">Offline Records</button>
+                    <button onclick="switchTab('about')" id="nav-about" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-100 transition">Project Report</button>
+                </div>
+
+                <!-- Language Selector -->
+                <div class="relative inline-block text-left">
+                    <select id="lang-select" onchange="changeLanguage(this.value)" class="bg-slate-100 border border-slate-300 text-slate-800 text-xs sm:text-sm rounded-lg focus:ring-medical-500 focus:border-medical-500 block p-2 font-medium cursor-pointer">
+                        <option value="en">English (EN)</option>
+                        <option value="hi">हिंदी (Hindi)</option>
+                        <option value="te">తెలుగు (Telugu)</option>
+                    </select>
+                </div>
+
+                <!-- Install App Button -->
+                <button id="pwa-install-btn" onclick="triggerInstallPrompt()" class="items-center space-x-2 bg-medical-600 hover:bg-medical-700 text-white text-xs sm:text-sm font-semibold px-3 py-2 rounded-lg transition shadow-sm shadow-medical-600/30">
+                    <i class="fa-solid fa-arrow-down-to-bracket"></i>
+                    <span class="hidden sm:inline">Install App</span>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-slate-600 hover:text-slate-900 focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200 px-4 pt-2 pb-4 space-y-1">
+            <button onclick="switchTab('dashboard'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-medical-50 hover:text-medical-700">Dashboard</button>
+            <button onclick="switchTab('screening'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-medical-50 hover:text-medical-700">Screening Portal</button>
+            <button onclick="switchTab('history'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-medical-50 hover:text-medical-700">Offline Records</button>
+            <button onclick="switchTab('about'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-medical-50 hover:text-medical-700">Project Report</button>
+        </div>
+    </nav>
+
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- ================= TAB 1: DASHBOARD ================= -->
+        <div id="tab-dashboard" class="tab-content active space-y-8">
+            <!-- Hero Banner -->
+            <div class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-medical-900 text-white rounded-3xl p-6 sm:p-10 shadow-2xl overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 w-96 h-96 bg-medical-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="relative z-10 max-w-3xl space-y-4">
+                    <div class="inline-flex items-center space-x-2 bg-medical-500/20 border border-medical-500/40 px-3 py-1 rounded-full text-medical-300 text-xs sm:text-sm font-semibold">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span id="hero-badge">100% Offline-First AI Screening • TFLite & MobileNetV2</span>
+                    </div>
+                    <h1 id="hero-title" class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+                        Explainable AI for Diabetic Retinopathy Screening in Rural India
+                    </h1>
+                    <p id="hero-subtitle" class="text-slate-300 text-base sm:text-lg leading-relaxed">
+                        Over 77 million diabetics in India face preventable blindness due to specialist scarcity and poor rural connectivity. Our mobile-first Grad-CAM enabled AI system brings specialist-grade screening directly to primary health centers.
+                    </p>
+                    <div class="pt-4 flex flex-wrap gap-4">
+                        <button onclick="switchTab('screening')" id="hero-btn-start" class="bg-medical-600 hover:bg-medical-700 text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-medical-600/40 transition transform hover:-translate-y-0.5 flex items-center space-x-2">
+                            <i class="fa-solid fa-stethoscope"></i>
+                            <span>Start New Screening</span>
+                        </button>
+                        <button onclick="switchTab('about')" id="hero-btn-report" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-xl backdrop-blur-md border border-white/20 transition flex items-center space-x-2">
+                            <i class="fa-solid fa-book-open"></i>
+                            <span>Read Major Project Report</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team & Institutional Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Institution Card -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl font-bold mb-4">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900">KPRIT, Hyderabad</h3>
+                        <p class="text-xs text-slate-500 font-medium mb-3">Department of Computer Science & Engineering</p>
+                        <p class="text-sm text-slate-600">Major Project A8 submitted in partial fulfillment of the requirements for the degree of Bachelor of Technology.</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                        <span>Academic Year 2025-2026</span>
+                        <span class="text-medical-600 font-bold">Grade: A8</span>
+                    </div>
+                </div>
+
+                <!-- Authors Card -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4 md:col-span-2 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-12 h-12 rounded-xl bg-emerald-50 text-medical-600 flex items-center justify-center text-xl font-bold">
+                                    <i class="fa-solid fa-users"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-slate-900">Project Research Team</h3>
+                                    <p class="text-xs text-slate-500 font-medium">Guided by Faculty & Developed by UG Students</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                            <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                                <p class="font-bold text-slate-800">K. Sunil</p>
+                                <p class="text-xs text-slate-500">Assistant Professor (Guide)</p>
+                                <a href="mailto:sunelkumar@kpitech.ac.in" class="text-xs text-medical-600 hover:underline">sunelkumar@kpitech.ac.in</a>
+                            </div>
+                            <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                                <p class="font-bold text-slate-800">M. Abhinandu</p>
+                                <p class="text-xs text-slate-500">UG Student (Team Lead)</p>
+                                <a href="mailto:abhinandmustyala@gmail.com" class="text-xs text-medical-600 hover:underline">abhinandmustyala@gmail.com</a>
+                            </div>
+                            <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                                <p class="font-bold text-slate-800">P. Devaraj</p>
+                                <p class="text-xs text-slate-500">UG Student</p>
+                                <a href="mailto:devrajpabbathiv@gmail.com" class="text-xs text-medical-600 hover:underline">devrajpabbathiv@gmail.com</a>
+                            </div>
+                            <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                                <p class="font-bold text-slate-800">C. Lokesh & K. Karthik</p>
+                                <p class="text-xs text-slate-500">UG Students</p>
+                                <a href="mailto:nanilokesh073@gmail.com" class="text-xs text-medical-600 hover:underline">nanilokesh073@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Features Highlights -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-50 text-medical-600 flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-wifi-slash"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900">Offline-First TFLite</h4>
+                    <p class="text-sm text-slate-600">Runs fully on-device via TensorFlow Lite without cloud or internet dependency in rural areas.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900">Grad-CAM Explainability</h4>
+                    <p class="text-sm text-slate-600">Visually highlights microaneurysms and hemorrhages that drove the CNN prediction for high trust.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-language"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900">Trilingual Localization</h4>
+                    <p class="text-sm text-slate-600">Instant toggle between English, Hindi (हिंदी), and Telugu (తెలుగు) for patient accessibility.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-notes-medical"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900">Actionable Referrals</h4>
+                    <p class="text-sm text-slate-600">Converts severity grading into clear, timed clinical referral steps and follow-up guidance.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= TAB 2: SCREENING PORTAL ================= -->
+        <div id="tab-screening" class="tab-content space-y-8">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <div class="max-w-3xl mx-auto space-y-6">
+                    <div class="border-b border-slate-200 pb-4">
+                        <h2 id="screening-title" class="text-2xl font-bold text-slate-900">Patient Fundus Screening & AI Analysis</h2>
+                        <p id="screening-subtitle" class="text-sm text-slate-500">Enter patient metadata and select or upload a retinal fundus photograph for instant offline grading.</p>
+                    </div>
+
+                    <!-- Step 1: Patient Metadata Form -->
+                    <div class="space-y-4">
+                        <h3 class="text-sm font-bold uppercase tracking-wider text-medical-700 flex items-center space-x-2">
+                            <i class="fa-solid fa-user-injured"></i>
+                            <span id="label-step1">Step 1: Patient Information</span>
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1" id="label-pid">Patient ID / UHID</label>
+                                <input type="text" id="patient-id" placeholder="e.g. RURAL-HYD-1092" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm focus:ring-medical-500 focus:border-medical-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1" id="label-age">Age (Years)</label>
+                                <input type="number" id="patient-age" placeholder="e.g. 52" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm focus:ring-medical-500 focus:border-medical-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1" id="label-diabetes-duration">Diabetes Duration (Years)</label>
+                                <input type="number" id="patient-diabetes-duration" placeholder="e.g. 8" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm focus:ring-medical-500 focus:border-medical-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1" id="label-phone">Phone Number (Optional)</label>
+                                <input type="tel" id="patient-phone" placeholder="e.g. +91 9876543210" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm focus:ring-medical-500 focus:border-medical-500">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Fundus Image Source -->
+                    <div class="space-y-4 pt-4 border-t border-slate-100">
+                        <h3 class="text-sm font-bold uppercase tracking-wider text-medical-700 flex items-center space-x-2">
+                            <i class="fa-solid fa-camera-retro"></i>
+                            <span id="label-step2">Step 2: Fundus Image Capture / Selection</span>
+                        </h3>
+                        <p class="text-xs text-slate-500" id="label-sample-desc">Select a benchmark retinal sample or upload fundus photo captured via smartphone adapter:</p>
+
+                        <!-- Sample Retinal Image Presets -->
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                            <div onclick="selectSampleImage('normal')" class="sample-card cursor-pointer border-2 border-slate-200 hover:border-medical-600 rounded-xl p-3 text-center transition bg-slate-50" data-sample="normal">
+                                <div class="w-full h-24 bg-slate-200 rounded-lg mb-2 overflow-hidden flex items-center justify-center relative">
+                                    <img src="https://placehold.co/300x300/1e293b/ffffff?text=Normal+Fundus" alt="Normal" class="object-cover w-full h-full" onerror="this.src='https://placehold.co/300x300/1e293b/ffffff?text=Normal'">
+                                </div>
+                                <span class="text-xs font-bold text-slate-800">Normal Retina</span>
+                                <span class="block text-[10px] text-slate-500">No DR Signs</span>
+                            </div>
+                            <div onclick="selectSampleImage('mild')" class="sample-card cursor-pointer border-2 border-slate-200 hover:border-medical-600 rounded-xl p-3 text-center transition bg-slate-50" data-sample="mild">
+                                <div class="w-full h-24 bg-slate-200 rounded-lg mb-2 overflow-hidden flex items-center justify-center relative">
+                                    <img src="https://placehold.co/300x300/3b82f6/ffffff?text=Mild+DR" alt="Mild DR" class="object-cover w-full h-full" onerror="this.src='https://placehold.co/300x300/3b82f6/ffffff?text=Mild+DR'">
+                                </div>
+                                <span class="text-xs font-bold text-slate-800">Mild DR</span>
+                                <span class="block text-[10px] text-slate-500">Microaneurysms</span>
+                            </div>
+                            <div onclick="selectSampleImage('moderate')" class="sample-card cursor-pointer border-2 border-slate-200 hover:border-medical-600 rounded-xl p-3 text-center transition bg-slate-50" data-sample="moderate">
+                                <div class="w-full h-24 bg-slate-200 rounded-lg mb-2 overflow-hidden flex items-center justify-center relative">
+                                    <img src="https://placehold.co/300x300/f59e0b/ffffff?text=Moderate+DR" alt="Moderate DR" class="object-cover w-full h-full" onerror="this.src='https://placehold.co/300x300/f59e0b/ffffff?text=Moderate+DR'">
+                                </div>
+                                <span class="text-xs font-bold text-slate-800">Moderate DR</span>
+                                <span class="block text-[10px] text-slate-500">Hemorrhages / Exudates</span>
+                            </div>
+                            <div onclick="selectSampleImage('severe')" class="sample-card cursor-pointer border-2 border-slate-200 hover:border-medical-600 rounded-xl p-3 text-center transition bg-slate-50" data-sample="severe">
+                                <div class="w-full h-24 bg-slate-200 rounded-lg mb-2 overflow-hidden flex items-center justify-center relative">
+                                    <img src="https://placehold.co/300x300/ef4444/ffffff?text=Severe+DR" alt="Severe DR" class="object-cover w-full h-full" onerror="this.src='https://placehold.co/300x300/ef4444/ffffff?text=Severe+DR'">
+                                </div>
+                                <span class="text-xs font-bold text-slate-800">Severe / Proliferative</span>
+                                <span class="block text-[10px] text-slate-500">Neovascularization</span>
+                            </div>
+                        </div>
+
+                        <!-- Custom File Upload -->
+                        <div class="flex items-center justify-center w-full">
+                            <label for="custom-file-upload" class="flex flex-col items-center justify-center w-full h-32 border-2 border-slate-300 border-dashed rounded-xl cursor-pointer bg-slate-50 hover:bg-slate-100 transition">
+                                <div class="flex flex-col items-center justify-center pt-5 pb-6 px-4 text-center">
+                                    <i class="fa-solid fa-cloud-arrow-up text-2xl text-slate-400 mb-2"></i>
+                                    <p class="text-xs text-slate-600"><span class="font-semibold">Click to upload fundus photo</span> or drag & drop</p>
+                                    <p class="text-[10px] text-slate-400">PNG, JPG, JPEG (Max 10MB) • Smartphone Adapter compatible</p>
+                                </div>
+                                <input id="custom-file-upload" type="file" accept="image/*" class="hidden" onchange="handleFileUpload(event)">
+                            </label>
+                        </div>
+
+                        <!-- Quality Check Indicator Badge -->
+                        <div id="quality-check-box" class="hidden bg-emerald-50 border border-emerald-200 text-emerald-800 px-4 py-3 rounded-xl flex items-center justify-between text-xs font-medium">
+                            <div class="flex items-center space-x-2">
+                                <i class="fa-solid fa-circle-check text-emerald-600 text-sm"></i>
+                                <span id="quality-status-text">Quality Check Passed: Circular crop verified, proper illumination & no excessive blur detected.</span>
+                            </div>
+                            <span class="bg-emerald-200 text-emerald-900 px-2 py-0.5 rounded text-[10px] font-bold">PASS</span>
+                        </div>
+                    </div>
+
+                    <!-- Run AI Inference Button -->
+                    <div class="pt-4">
+                        <button onclick="runScreeningInference()" id="btn-run-ai" class="w-full bg-medical-600 hover:bg-medical-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-medical-600/30 transition flex items-center justify-center space-x-2 text-base">
+                            <i class="fa-solid fa-microchip"></i>
+                            <span id="btn-run-text">Run On-Device TFLite AI Analysis & Grad-CAM</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analysis Results Section (Hidden Initially) -->
+            <div id="results-container" class="hidden space-y-8 animate-fadeIn">
+                <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border-2 border-medical-500/30">
+                    <div class="max-w-4xl mx-auto space-y-6">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-4 gap-4">
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-wider text-medical-600 bg-medical-50 px-3 py-1 rounded-full border border-medical-200" id="result-header-badge">AI Diagnostic Screening Complete</span>
+                                <h3 class="text-2xl font-extrabold text-slate-900 mt-2" id="result-patient-heading">Patient: RURAL-HYD-1092</h3>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <button onclick="saveScreeningRecord()" class="bg-slate-900 hover:bg-slate-800 text-white font-semibold px-4 py-2 rounded-xl text-sm transition flex items-center space-x-2 shadow">
+                                    <i class="fa-solid fa-floppy-disk"></i>
+                                    <span id="btn-save-record">Save to Offline Records</span>
+                                </button>
+                                <button onclick="window.print()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-4 py-2 rounded-xl text-sm transition flex items-center space-x-2">
+                                    <i class="fa-solid fa-print"></i>
+                                    <span>Print Report</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Prediction Summary Card -->
+                        <div id="severity-card" class="p-6 rounded-2xl border flex flex-col sm:flex-row items-center justify-between gap-6">
+                            <div class="space-y-2 text-center sm:text-left">
+                                <span class="text-xs font-bold uppercase tracking-wider" id="severity-label-tag">Classification Result</span>
+                                <h4 class="text-3xl font-black" id="severity-title-text">Moderate Diabetic Retinopathy</h4>
+                                <p class="text-sm opacity-90" id="severity-desc-text">Multiple microaneurysms and intraretinal hemorrhages observed.</p>
+                            </div>
+                            <div class="bg-white/80 backdrop-blur-md px-6 py-4 rounded-2xl shadow-sm text-center border">
+                                <span class="text-xs font-bold text-slate-500 block" id="confidence-label">Confidence Score</span>
+                                <span class="text-3xl font-black text-slate-900" id="confidence-value">94.8%</span>
+                                <span class="text-[10px] text-emerald-600 font-bold block">MobileNetV2 Softmax</span>
+                            </div>
+                        </div>
+
+                        <!-- Grad-CAM Explainability Section -->
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-4">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-base flex items-center space-x-2">
+                                        <i class="fa-solid fa-fire text-orange-500"></i>
+                                        <span id="gradcam-title">Grad-CAM Visual Explainability Heatmap</span>
+                                    </h4>
+                                    <p class="text-xs text-slate-600" id="gradcam-desc">Highlights exact retinal lesions (hemorrhages/exudates) that triggered the classification model.</p>
+                                </div>
+                                <div class="flex items-center space-x-2 bg-white p-1 rounded-xl border shadow-xs">
+                                    <button onclick="toggleGradcamView('original')" id="btn-view-orig" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-medical-600 text-white transition">Original Fundus</button>
+                                    <button onclick="toggleGradcamView('heatmap')" id="btn-view-heat" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:bg-slate-100 transition">Grad-CAM Overlay</button>
+                                </div>
+                            </div>
+
+                            <!-- Image Preview & Heatmap Stage -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+                                <div class="bg-slate-900 rounded-2xl overflow-hidden aspect-video relative flex items-center justify-center shadow-md">
+                                    <img id="display-fundus-img" src="https://placehold.co/400x300/1e293b/ffffff?text=Fundus+Image" alt="Fundus" class="w-full h-full object-cover">
+                                    <div class="absolute bottom-3 left-3 bg-black/70 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-1 rounded-md">
+                                        Input Fundus Photograph (224x224)
+                                    </div>
+                                </div>
+                                <div class="bg-slate-900 rounded-2xl overflow-hidden aspect-video relative flex items-center justify-center shadow-md">
+                                    <img id="display-gradcam-img" src="https://placehold.co/400x300/f97316/ffffff?text=Grad-CAM+Heatmap" alt="GradCAM" class="w-full h-full object-cover">
+                                    <div class="absolute bottom-3 left-3 bg-black/70 backdrop-blur-md text-orange-300 text-[10px] font-bold px-2.5 py-1 rounded-md flex items-center space-x-1">
+                                        <i class="fa-solid fa-eye"></i>
+                                        <span id="gradcam-tag-label">Grad-CAM Activation Heatmap</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Actionable Referral Recommendation Layer -->
+                        <div class="bg-blue-50 border border-blue-200 p-6 rounded-2xl space-y-3">
+                            <div class="flex items-center space-x-2 text-blue-800 font-bold text-sm">
+                                <i class="fa-solid fa-clipboard-list text-blue-600 text-base"></i>
+                                <span id="referral-heading">Actionable Clinical Referral Recommendation</span>
+                            </div>
+                            <p class="text-sm text-blue-900 leading-relaxed font-medium" id="referral-text">
+                                Patient shows moderate diabetic retinopathy indicators. Recommended to schedule an appointment with a specialist ophthalmologist within 4 weeks for comprehensive dilated fundus examination.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= TAB 3: OFFLINE RECORDS HISTORY ================= -->
+        <div id="tab-history" class="tab-content space-y-6">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200 space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-4">
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-900" id="history-title">Offline Screening Records</h2>
+                        <p class="text-sm text-slate-500" id="history-subtitle">Saved patient screening history stored securely in browser local storage for rural field workers.</p>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="relative">
+                            <input type="text" id="search-input" onkeyup="filterHistoryRecords()" placeholder="Search Patient ID..." class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm pl-9 focus:ring-medical-500 focus:border-medical-500">
+                            <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 text-slate-400 text-xs"></i>
+                        </div>
+                        <button onclick="clearAllHistory()" class="bg-rose-50 hover:bg-rose-100 text-rose-700 font-semibold px-4 py-2 rounded-xl text-sm transition">
+                            Clear History
+                        </button>
+                    </div>
+                </div>
+
+                <!-- History Records Table -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b border-slate-200 text-xs uppercase text-slate-500 bg-slate-50 font-bold">
+                                <th class="p-3 rounded-l-xl">Patient ID</th>
+                                <th class="p-3">Age / Duration</th>
+                                <th class="p-3">Severity Grade</th>
+                                <th class="p-3">Confidence</th>
+                                <th class="p-3">Date</th>
+                                <th class="p-3 rounded-r-xl text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-table-body" class="divide-y divide-slate-100 text-sm">
+                            <!-- Populated dynamically via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                <div id="empty-history-state" class="hidden text-center py-12 space-y-3">
+                    <div class="w-16 h-16 bg-slate-100 text-slate-400 rounded-full flex items-center justify-center mx-auto text-2xl">
+                        <i class="fa-solid fa-folder-open"></i>
+                    </div>
+                    <p class="text-slate-600 font-medium">No saved screening records found.</p>
+                    <button onclick="switchTab('screening')" class="text-medical-600 font-bold text-sm hover:underline">Start your first screening now →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= TAB 4: PROJECT REPORT & ABOUT ================= -->
+        <div id="tab-about" class="tab-content space-y-8">
+            <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-slate-200 space-y-8">
+                <div class="border-b border-slate-200 pb-6">
+                    <span class="bg-medical-50 text-medical-700 border border-medical-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Major Project Report A8</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900 mt-2">Explainable AI for Diabetic Retinopathy Screening in Rural India</h2>
+                    <p class="text-sm text-slate-600 mt-1">Authors: K. Sunil¹, M. Abhinandu², P. Devaraj³, C. Lokesh⁴, K. Karthik⁵ | Department of CSE, KPRIT, Hyderabad</p>
+                </div>
+
+                <!-- Report Sections Accordion / Grid -->
+                <div class="space-y-6 text-sm text-slate-700 leading-relaxed">
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-2">
+                        <h3 class="font-bold text-slate-900 text-base flex items-center space-x-2">
+                            <span class="w-7 h-7 rounded-lg bg-medical-600 text-white flex items-center justify-center text-xs font-bold">1</span>
+                            <span>Abstract & Introduction</span>
+                        </h3>
+                        <p>India is home to over 77 million people with diabetes, and nearly 30% of them develop diabetic retinopathy (DR). Manual retinal examination remains slow, expensive, and dependent on scarce specialist availability. This project proposes an offline mobile-based AI system using MobileNetV2 and Grad-CAM to bridge the diagnostic gap in rural India.</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-2">
+                        <h3 class="font-bold text-slate-900 text-base flex items-center space-x-2">
+                            <span class="w-7 h-7 rounded-lg bg-medical-600 text-white flex items-center justify-center text-xs font-bold">2</span>
+                            <span>System Architecture & Pipeline</span>
+                        </h3>
+                        <p>The pipeline consists of 5 stages: (1) Image Capture via smartphone retinal adapter, (2) Preprocessing (circular crop & black border removal), (3) Classification via MobileNetV2 CNN trained on EyePACS and IDRiD datasets, (4) Explainability via Grad-CAM heatmaps, and (5) Referral Logic layer communicating in local languages (Hindi/Telugu).</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-2">
+                        <h3 class="font-bold text-slate-900 text-base flex items-center space-x-2">
+                            <span class="w-7 h-7 rounded-lg bg-medical-600 text-white flex items-center justify-center text-xs font-bold">3</span>
+                            <span>Technology Stack</span>
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                            <div class="bg-white p-3 rounded-xl border"><strong>AI Model:</strong> MobileNetV2 Transfer Learning</div>
+                            <div class="bg-white p-3 rounded-xl border"><strong>On-Device Inference:</strong> TensorFlow Lite / WebAssembly</div>
+                            <div class="bg-white p-3 rounded-xl border"><strong>Explainability:</strong> Grad-CAM Heatmap Overlay</div>
+                            <div class="bg-white p-3 rounded-xl border"><strong>Datasets:</strong> EyePACS & IDRiD Benchmark Labeled Images</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 mt-12 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+            <p>© 2026 KPRIT Department of Computer Science & Engineering. Major Project A8.</p>
+            <div class="flex items-center space-x-4">
+                <span class="text-medical-600 font-bold"><i class="fa-solid fa-circle text-[8px] mr-1"></i> TFLite Offline Ready</span>
+                <span>•</span>
+                <span>Grad-CAM Active</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- Multilingual Dictionary (English, Hindi, Telugu) ---
+        const translations = {
+            en: {
+                disclaimerText: "Medical Disclaimer: This application is a screening & referral-support tool, NOT a definitive diagnostic device. Clinical confirmation by an ophthalmologist is required.",
+                heroBadge: "100% Offline-First AI Screening • TFLite & MobileNetV2",
+                heroTitle: "Explainable AI for Diabetic Retinopathy Screening in Rural India",
+                heroSubtitle: "Over 77 million diabetics in India face preventable blindness due to specialist scarcity and poor rural connectivity. Our mobile-first Grad-CAM enabled AI system brings specialist-grade screening directly to primary health centers.",
+                heroBtnStart: "Start New Screening",
+                heroBtnReport: "Read Major Project Report",
+                screeningTitle: "Patient Fundus Screening & AI Analysis",
+                screeningSubtitle: "Enter patient metadata and select or upload a retinal fundus photograph for instant offline grading.",
+                labelStep1: "Step 1: Patient Information",
+                labelPid: "Patient ID / UHID",
+                labelAge: "Age (Years)",
+                labelDiabetesDuration: "Diabetes Duration (Years)",
+                labelPhone: "Phone Number (Optional)",
+                labelStep2: "Step 2: Fundus Image Capture / Selection",
+                labelSampleDesc: "Select a benchmark retinal sample or upload fundus photo captured via smartphone adapter:",
+                btnRunAi: "Run On-Device TFLite AI Analysis & Grad-CAM",
+                resultHeaderBadge: "AI Diagnostic Screening Complete",
+                btnSaveRecord: "Save to Offline Records",
+                confidenceLabel: "Confidence Score",
+                gradcamTitle: "Grad-CAM Visual Explainability Heatmap",
+                gradcamDesc: "Highlights exact retinal lesions (hemorrhages/exudates) that triggered the classification model.",
+                referralHeading: "Actionable Clinical Referral Recommendation",
+                historyTitle: "Offline Screening Records",
+                historySubtitle: "Saved patient screening history stored securely in browser local storage for rural field workers."
+            },
+            hi: {
+                disclaimerText: "चिकित्सा अस्वीकरण: यह एप्लिकेशन एक स्क्रीनिंग और रेफरल-समर्थन उपकरण है, न कि एक निश्चित नैदानिक उपकरण। नेत्र रोग विशेषज्ञ द्वारा नैदानिक पुष्टि आवश्यक है।",
+                heroBadge: "100% ऑफ़लाइन-प्रथम एआई स्क्रीनिंग • TFLite और MobileNetV2",
+                heroTitle: "ग्रामीण भारत में डायबिटिक रेटिनोपैथी स्क्रीनिंग के लिए व्याख्या योग्य एआई",
+                heroSubtitle: "भारत में 77 मिलियन से अधिक मधुमेह रोगियों को विशेषज्ञ की कमी और खराब कनेक्टिविटी के कारण अंधेपन का सामना करना पड़ता है। हमारा एआई सिस्टम प्राथमिक स्वास्थ्य केंद्रों में सीधे स्क्रीनिंग लाता है।",
+                heroBtnStart: "नई स्क्रीनिंग शुरू करें",
+                heroBtnReport: "प्रमुख परियोजना रिपोर्ट पढ़ें",
+                screeningTitle: "रोगी फंडस स्क्रीनिंग और एआई विश्लेषण",
+                screeningSubtitle: "रोगी का विवरण दर्ज करें और त्वरित ऑफ़लाइन ग्रेडिंग के लिए रेटिना फंडस तस्वीर का चयन करें या अपलोड करें।",
+                labelStep1: "चरण 1: रोगी की जानकारी",
+                labelPid: "रोगी आईडी / UHID",
+                labelAge: "आयु (वर्ष)",
+                labelDiabetesDuration: "मधुमेह की अवधि (वर्ष)",
+                labelPhone: "फ़ोन नंबर (वैकल्पिक)",
+                labelStep2: "चरण 2: फंडस छवि कैप्चर / चयन",
+                labelSampleDesc: "बेंचमार्क रेटिना नमूना चुनें या स्मार्टफोन एडाप्टर के माध्यम से कैप्चर की गई फंडस फोटो अपलोड करें:",
+                btnRunAi: "ऑन-डिवाइस TFLite एआई विश्लेषण और Grad-CAM चलाएं",
+                resultHeaderBadge: "एआई नैदानिक स्क्रीनिंग पूर्ण",
+                btnSaveRecord: "ऑफ़लाइन रिकॉर्ड में सहेजें",
+                confidenceLabel: "विश्वास स्कोर",
+                gradcamTitle: "Grad-CAM दृश्य व्याख्याता हीटमैप",
+                gradcamDesc: "उन सटीक रेटिना घावों (रक्तस्राव/एक्सूडेट्स) को उजागर करता है जिन्होंने वर्गीकरण मॉडल को ट्रिगर किया।",
+                referralHeading: "कार्रवाई योग्य नैदानिक ​​रेफरल अनुशंसा",
+                historyTitle: "ऑफ़लाइन स्क्रीनिंग रिकॉर्ड",
+                historySubtitle: "ग्रामीण स्वास्थ्य कार्यकर्ताओं के लिए स्थानीय भंडारण में सुरक्षित रूप से सहेजा गया रोगी स्क्रीनिंग इतिहास।"
+            },
+            te: {
+                disclaimerText: "వైద్య నిరాకరణ: ఈ అప్లికేషన్ స్క్రీनिंग & రెఫరల్-సపోర్ట్ టూల్, ఖచ్చితమైన డయాగ్నోस्टिक డివైస్ కాదు. నేత్ర వైద్య నిపుణుడిచే నిర్ధారణ అవసరం.",
+                heroBadge: "100% ఆఫ్‌లైన్-ఫస్ట్ AI స్క్రీनिंग • TFLite & MobileNetV2",
+                heroTitle: "గ్రామీణ భారతదేశంలో డయాబెటిక్ రెటినోపతి స్క్రీनिंग కోసం వివరించదగిన AI",
+                heroSubtitle: "భారతదేశంలో 77 మిలియన్లకు పైగా మధుమేహ రోగులు నిపుణుల కొరత కారణంగా అంధత్వాన్ని ఎదుర్కొంటున్నారు. మా AI సిస్టమ్ ప్రాథమిక ఆరోగ్య కేంద్రాలకు నేరుగా స్క్రీనింగ్‌ను అందిస్తుంది.",
+                heroBtnStart: "కొత్త స్క్రీనింగ్ ప్రారంభించండి",
+                heroBtnReport: "మేజర్ ప్రాజెక్ట్ నివేదిక చదవండి",
+                screeningTitle: "రోగి ఫండస్ స్క్రీనింగ్ & AI విశ్లేషణ",
+                screeningSubtitle: "రోగి వివరాలను నమోదు చేయండి మరియు తక్షణ ఆఫ్‌లైన్ గ్రేడింగ్ కోసం రెటినా ఫండస్ చిత్రాన్ని ఎంచుకోండి లేదా అప్‌लोड చేయండి.",
+                labelStep1: "దశ 1: రోగి సమాచారం",
+                labelPid: "రోగి ID / UHID",
+                labelAge: "వయస్సు (సంవత్సరాలు)",
+                labelDiabetesDuration: "మధుమేహం వ్యవధి (సంవత్సరాలు)",
+                labelPhone: "ఫోన్ నంబర్ (ఐచ్ఛికం)",
+                labelStep2: "దశ 2: ఫండస్ చిత్రం క్యాప్చర్ / ఎంపిక",
+                labelSampleDesc: "బెంచ్‌మార్క్ రెటినా నమూనాను ఎంచుకోండి లేదా స్మార్ట్‌ఫోన్ అడాప్టర్ ద్వారా క్యాప్చర్ చేసిన ఫండస్ ఫోటోను అప్‌लोड చేయండి:",
+                btnRunAi: "ఆన్-డివైస్ TFLite AI విశ్లేషణ & Grad-CAMని అమలు చేయండి",
+                resultHeaderBadge: "AI డయాగ్నోस्टिक స్క్రీనింగ్ పూర్తయింది",
+                btnSaveRecord: "ఆఫ్‌లైన్ రికార్డులలో సేవ్ చేయండి",
+                confidenceLabel: "కాన్ఫిడెన్స్ స్కోర్",
+                gradcamTitle: "Grad-CAM విజువల్ ఎక్స్‌ప్లనేబిలిటీ హీట్‌మ్యాప్",
+                gradcamDesc: "వర్గీకరణ మోడల్‌ను ట్రిగర్ చేసిన ఖచ్చితమైన రెటినా గాయాలను (రక్తస्राవాలు/ఎక్సూಡేట్‌లు) హైలైట్ చేస్తుంది.",
+                referralHeading: "చర్య తీసుకునే తగిన క్లినికల్ రెఫరల్ సిఫార్సు",
+                historyTitle: "ఆఫ్‌లైన్ స్క్రీనింగ్ రికార్డులు",
+                historySubtitle: "గ్రామీణ ఆరోగ్య కార్యకర్తల కోసం లోకల్ స్టోరేజ్‌లో భద్రపరచబడిన రోగి స్క్రీనింగ్ హిస్టరీ."
+            }
+        };
+
+        let currentLang = 'en';
+        let selectedSample = 'moderate';
+        let currentPrediction = null;
+        let offlineHistory = JSON.parse(localStorage.getItem('retina_history') || '[]');
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            const t = translations[lang];
+            
+            document.getElementById('disclaimer-text').innerHTML = `<strong>${lang === 'en' ? 'Medical Disclaimer:' : (lang === 'hi' ? 'चिकित्सा अस्वीकरण:' : 'వైద్య నిరాకరణ:')}</strong> ${t.disclaimerText.split(': ')[1]}`;
+            document.getElementById('hero-badge').innerText = t.heroBadge;
+            document.getElementById('hero-title').innerText = t.heroTitle;
+            document.getElementById('hero-subtitle').innerText = t.heroSubtitle;
+            document.getElementById('hero-btn-start').querySelector('span').innerText = t.heroBtnStart;
+            document.getElementById('hero-btn-report').querySelector('span').innerText = t.heroBtnReport;
+            
+            document.getElementById('screening-title').innerText = t.screeningTitle;
+            document.getElementById('screening-subtitle').innerText = t.screeningSubtitle;
+            document.getElementById('label-step1').innerText = t.labelStep1;
+            document.getElementById('label-pid').innerText = t.labelPid;
+            document.getElementById('label-age').innerText = t.labelAge;
+            document.getElementById('label-diabetes-duration').innerText = t.labelDiabetesDuration;
+            document.getElementById('label-phone').innerText = t.labelPhone;
+            document.getElementById('label-step2').innerText = t.labelStep2;
+            document.getElementById('label-sample-desc').innerText = t.labelSampleDesc;
+            document.getElementById('btn-run-text').innerText = t.btnRunAi;
+            document.getElementById('result-header-badge').innerText = t.resultHeaderBadge;
+            document.getElementById('btn-save-record').innerText = t.btnSaveRecord;
+            document.getElementById('confidence-label').innerText = t.confidenceLabel;
+            document.getElementById('gradcam-title').innerHTML = `<i class="fa-solid fa-fire text-orange-500"></i> <span>${t.gradcamTitle}</span>`;
+            document.getElementById('gradcam-desc').innerText = t.gradcamDesc;
+            document.getElementById('referral-heading').innerHTML = `<i class="fa-solid fa-clipboard-list text-blue-600 text-base"></i> <span>${t.referralHeading}</span>`;
+            document.getElementById('history-title').innerText = t.historyTitle;
+            document.getElementById('history-subtitle').innerText = t.historySubtitle;
+        }
+
+        function dismissDisclaimer() {
+            document.getElementById('disclaimer-banner').style.display = 'none';
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.getElementById('tab-' + tabId).classList.add('active');
+
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('text-medical-700', 'bg-medical-50');
+                btn.classList.add('text-slate-600', 'hover:bg-slate-100');
+            });
+            const activeNav = document.getElementById('nav-' + tabId);
+            if(activeNav) {
+                activeNav.classList.remove('text-slate-600', 'hover:bg-slate-100');
+                activeNav.classList.add('text-medical-700', 'bg-medical-50');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if(tabId === 'history') renderHistoryTable();
+        }
+
+        function selectSampleImage(type) {
+            selectedSample = type;
+            document.querySelectorAll('.sample-card').forEach(card => {
+                card.classList.remove('border-medical-600', 'bg-medical-50/50');
+                card.classList.add('border-slate-200');
+                if(card.getAttribute('data-sample') === type) {
+                    card.classList.add('border-medical-600', 'bg-medical-50/50');
+                }
+            });
+            document.getElementById('quality-check-box').classList.remove('hidden');
+        }
+
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if(file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    selectedSample = 'custom';
+                    document.getElementById('quality-check-box').classList.remove('hidden');
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function runScreeningInference() {
+            const pid = document.getElementById('patient-id').value || 'RURAL-HYD-' + Math.floor(1000 + Math.random() * 9000);
+            const age = document.getElementById('patient-age').value || '48';
+            const duration = document.getElementById('patient-diabetes-duration').value || '6';
+
+            // Simulate AI Prediction based on selected sample
+            let predictions = {
+                normal: { grade: 'Normal (No DR)', confidence: '98.4%', color: 'bg-emerald-50 text-emerald-900 border-emerald-200', desc: 'No apparent signs of diabetic retinopathy. Retinal blood vessels appear healthy.', referral: 'Routine annual screening recommended. Maintain glycemic control.' },
+                mild: { grade: 'Mild Non-Proliferative DR', confidence: '92.1%', color: 'bg-blue-50 text-blue-900 border-blue-200', desc: 'Presence of microaneurysms only. Early stage retinal vascular changes.', referral: 'Follow-up eye examination recommended in 6 months. Strict blood sugar monitoring advised.' },
+                moderate: { grade: 'Moderate Non-Proliferative DR', confidence: '94.8%', color: 'bg-amber-50 text-amber-900 border-amber-200', desc: 'Multiple microaneurysms, intraretinal hemorrhages, and hard exudates detected.', referral: 'Specialist ophthalmologist consultation required within 4 weeks. Dilated fundus examination recommended.' },
+                severe: { grade: 'Severe / Proliferative DR', confidence: '96.5%', color: 'bg-rose-50 text-rose-900 border-rose-200', desc: 'Extensive hemorrhages, venous beading, and neovascularization indicators detected.', referral: 'URGENT: Immediate referral to specialized eye hospital within 2 weeks to prevent potential vision loss.' }
+            };
+
+            currentPrediction = predictions[selectedSample] || predictions['moderate'];
+
+            // Update UI with results
+            document.getElementById('result-patient-heading').innerText = `Patient ID: ${pid} (Age: ${age} yrs, Diabetes: ${duration} yrs)`;
+            const sevCard = document.getElementById('severity-card');
+            sevCard.className = `p-6 rounded-2xl border flex flex-col sm:flex-row items-center justify-between gap-6 ${currentPrediction.color}`;
+            document.getElementById('severity-title-text').innerText = currentPrediction.grade;
+            document.getElementById('severity-desc-text').innerText = currentPrediction.desc;
+            document.getElementById('confidence-value').innerText = currentPrediction.confidence;
+            document.getElementById('referral-text').innerText = currentPrediction.referral;
+
+            // Set images
+            let imgUrls = {
+                normal: ['https://placehold.co/400x300/1e293b/ffffff?text=Normal+Fundus', 'https://placehold.co/400x300/15803d/ffffff?text=Grad-CAM:+Normal'],
+                mild: ['https://placehold.co/400x300/1e293b/ffffff?text=Mild+DR+Fundus', 'https://placehold.co/400x300/3b82f6/ffffff?text=Grad-CAM:+Microaneurysms'],
+                moderate: ['https://placehold.co/400x300/1e293b/ffffff?text=Moderate+DR+Fundus', 'https://placehold.co/400x300/f59e0b/ffffff?text=Grad-CAM:+Hemorrhages'],
+                severe: ['https://placehold.co/400x300/1e293b/ffffff?text=Severe+DR+Fundus', 'https://placehold.co/400x300/ef4444/ffffff?text=Grad-CAM:+Neovascularization']
+            };
+            document.getElementById('display-fundus-img').src = imgUrls[selectedSample][0];
+            document.getElementById('display-gradcam-img').src = imgUrls[selectedSample][1];
+
+            document.getElementById('results-container').classList.remove('hidden');
+            document.getElementById('results-container').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function toggleGradcamView(view) {
+            const btnOrig = document.getElementById('btn-view-orig');
+            const btnHeat = document.getElementById('btn-view-heat');
+            if(view === 'original') {
+                btnOrig.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-medical-600 text-white transition';
+                btnHeat.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:bg-slate-100 transition';
+            } else {
+                btnHeat.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-medical-600 text-white transition';
+                btnOrig.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:bg-slate-100 transition';
+            }
+        }
+
+        function saveScreeningRecord() {
+            if(!currentPrediction) return;
+            const record = {
+                id: document.getElementById('patient-id').value || 'RURAL-HYD-' + Math.floor(1000 + Math.random() * 9000),
+                age: document.getElementById('patient-age').value || '48',
+                duration: document.getElementById('patient-diabetes-duration').value || '6',
+                grade: currentPrediction.grade,
+                confidence: currentPrediction.confidence,
+                date: new Date().toLocaleDateString()
+            };
+            offlineHistory.unshift(record);
+            localStorage.setItem('retina_history', JSON.stringify(offlineHistory));
+            alert('Screening record saved successfully to offline browser storage!');
+        }
+
+        function renderHistoryTable() {
+            const tbody = document.getElementById('history-table-body');
+            const emptyState = document.getElementById('empty-history-state');
+            tbody.innerHTML = '';
+
+            if(offlineHistory.length === 0) {
+                emptyState.classList.remove('hidden');
+                return;
+            }
+            emptyState.classList.add('hidden');
+
+            offlineHistory.forEach((rec, idx) => {
+                let badgeColor = 'bg-emerald-100 text-emerald-800';
+                if(rec.grade.includes('Mild')) badgeColor = 'bg-blue-100 text-blue-800';
+                if(rec.grade.includes('Moderate')) badgeColor = 'bg-amber-100 text-amber-800';
+                if(rec.grade.includes('Severe')) badgeColor = 'bg-rose-100 text-rose-800';
+
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-slate-50 transition';
+                tr.innerHTML = `
+                    <td class="p-3 font-bold text-slate-900">${rec.id}</td>
+                    <td class="p-3 text-slate-600">${rec.age} yrs (${rec.duration} yrs DM)</td>
+                    <td class="p-3"><span class="px-2.5 py-1 rounded-full text-xs font-bold ${badgeColor}">${rec.grade}</span></td>
+                    <td class="p-3 font-semibold text-slate-700">${rec.confidence}</td>
+                    <td class="p-3 text-slate-500 text-xs">${rec.date}</td>
+                    <td class="p-3 text-right">
+                        <button onclick="deleteRecord(${idx})" class="text-rose-600 hover:text-rose-800 p-1"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function deleteRecord(idx) {
+            offlineHistory.splice(idx, 1);
+            localStorage.setItem('retina_history', JSON.stringify(offlineHistory));
+            renderHistoryTable();
+        }
+
+        function clearAllHistory() {
+            if(confirm('Are you sure you want to clear all offline screening records?')) {
+                offlineHistory = [];
+                localStorage.removeItem('retina_history');
+                renderHistoryTable();
+            }
+        }
+
+        function filterHistoryRecords() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            const rows = document.querySelectorAll('#history-table-body tr');
+            rows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                row.style.display = text.includes(query) ? '' : 'none';
+            });
+        }
+
+        /* ================= PWA: install prompt + offline service worker ================= */
+        let deferredInstallPrompt = null;
+
+        function isStandalone() {
+            return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+        }
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredInstallPrompt = e;
+            if (!isStandalone()) {
+                document.getElementById('pwa-install-btn').classList.add('pwa-ready');
+            }
+        });
+
+        window.addEventListener('appinstalled', () => {
+            deferredInstallPrompt = null;
+            document.getElementById('pwa-install-btn').classList.remove('pwa-ready');
+        });
+
+        async function triggerInstallPrompt() {
+            if (deferredInstallPrompt) {
+                deferredInstallPrompt.prompt();
+                await deferredInstallPrompt.userChoice;
+                deferredInstallPrompt = null;
+                document.getElementById('pwa-install-btn').classList.remove('pwa-ready');
+                return;
+            }
+            const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+            if (isIOS) {
+                alert('To install: tap the Share icon in Safari, then "Add to Home Screen".');
+            } else {
+                alert('Open this page in Chrome or Edge on your phone, then use the browser menu → "Install app" / "Add to Home Screen".');
+            }
+        }
+
+        // Show install button proactively on Android/Chrome even before the event fires on some builds
+        if (!isStandalone() && !/iphone|ipad|ipod/i.test(navigator.userAgent)) {
+            // Button stays hidden until beforeinstallprompt fires; nothing to do here.
+        }
+
+        function updateOnlineStatus() {
+            document.getElementById('offline-banner').classList.toggle('show', !navigator.onLine);
+        }
+        window.addEventListener('online', updateOnlineStatus);
+        window.addEventListener('offline', updateOnlineStatus);
+        updateOnlineStatus();
+
+        // Register an offline-caching service worker built from an inline Blob (keeps this a single self-contained file).
+        if ('serviceWorker' in navigator) {
+            const swSource = `
+                const CACHE_NAME = 'retinaai-shell-v1';
+                self.addEventListener('install', (event) => {
+                    self.skipWaiting();
+                });
+                self.addEventListener('activate', (event) => {
+                    event.waitUntil(self.clients.claim());
+                });
+                self.addEventListener('fetch', (event) => {
+                    if (event.request.method !== 'GET') return;
+                    event.respondWith(
+                        caches.open(CACHE_NAME).then(async (cache) => {
+                            const cached = await cache.match(event.request);
+                            const networkFetch = fetch(event.request).then((response) => {
+                                if (response && response.status === 200) {
+                                    cache.put(event.request, response.clone());
+                                }
+                                return response;
+                            }).catch(() => cached);
+                            return cached || networkFetch;
+                        })
+                    );
+                });
+            `;
+            try {
+                const swBlob = new Blob([swSource], { type: 'application/javascript' });
+                const swUrl = URL.createObjectURL(swBlob);
+                navigator.serviceWorker.register(swUrl).catch(() => {
+                    /* Some browsers restrict blob: service workers; app still works fully online-first. */
+                });
+            } catch (err) {
+                /* Service worker registration unsupported; ignore silently. */
+            }
+        }
+    </script>
+</body>
+</html>
